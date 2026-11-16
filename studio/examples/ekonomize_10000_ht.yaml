@@ -1,0 +1,145 @@
+# "Fè yon videyo 3 minit an Kreyòl: kòman pou ekonomize $10,000 nan 1 an Etazini." (rendered 2026-11-16, 2:56)
+# Render: rea-studio make studio/examples/ekonomize_10000_ht.yaml
+title: Ekonomize $10,000 nan 1 an
+language: ht
+format: '16:9'
+style: financial
+duration: 180
+seed: 2026
+voice:
+  voice: hat
+  delivery: neutral
+  speed: 0.9
+music:
+  engine: score
+  mood: financial
+subtitles:
+  style: clean
+thumbnail:
+  text: $10,000 nan 1 an
+  accent_words:
+  - $10,000
+  scene: 16
+visual_style: clean modern lifestyle photography, United States, warm natural light, shallow depth of field, high detail, realistic
+negative: text, letters, numbers, watermark, logo, signature, picture frame, border, blurry, deformed hands, extra fingers, extra limbs, cartoon
+characters:
+  nadia:
+    description: Haitian-American Black woman in her early 30s, short natural curly hair, small gold hoop earrings, mustard yellow sweater
+    seed: 3301
+locations:
+  apartment:
+    description: cozy small apartment kitchen in an American city, wooden table, warm lamps
+scenes:
+- narration: 'Dis mil dola nan yon sèl ane. [pause 0.4] Ou panse se pa pou ou? Tande byen: se mwens pase trant dola pa jou.'
+  visual: close-up of many green US dollar banknotes, cash money fanned out on a dark table, dramatic golden light, cinematic, money
+  top_text: $10,000 nan 1 an?
+  camera: push_in_fast
+  sfx:
+  - cash@0.3
+  seed: 777
+  negative: watermark, logo, blurry, deformed hands, cartoon, paper stack, books
+- narration: Pifò moun k ap viv Etazini travay di chak jou. Men nan fen mwa a, pòch yo vid. Ou rekonèt tèt ou?
+  visual: tired woman sitting at a kitchen table at night with a pile of envelopes and bills, head in her hand
+  characters:
+  - nadia
+  location: apartment
+  camera: push_in
+- narration: Jodi a, m ap ba ou yon plan senp, etap pa etap, pou ou ka mete dis mil dola sou kote nan douz mwa.
+  visual: woman smiling with confidence, holding a notebook and pen, morning light through a window
+  characters:
+  - nadia
+  location: apartment
+  top_text: 'Plan an: 7 etap'
+  camera: drift
+- narration: 'Premye etap la: konnen kote chak dola ou ale. Pandan yon mwa, ekri tout depans ou, menm ti kafe a.'
+  visual: top-down view of a hand writing in an open notebook next to a coffee cup and a calculator on a wooden desk
+  title: 'Etap 1: Konnen depans ou'
+  camera: push_in
+- narration: Lè tout chif yo devan je ou, ou ap sezi wè konbyen lajan ki t ap koule san ou pa konnen.
+  visual: woman looking surprised at a notebook in her hands, raised eyebrows, kitchen background
+  characters:
+  - nadia
+  location: apartment
+  camera: pan_right
+- narration: 'Dezyèm etap la: peye tèt ou anvan. Chak fwa ou touche, mete yon ti kòb otomatikman nan yon kont epay.'
+  visual: a pink piggy bank on a table with coins being dropped into it, soft morning light
+  title: 'Etap 2: Peye tèt ou anvan'
+  camera: push_in
+  sfx:
+  - pop@1.0
+- narration: Chèche yon kont epay ki bay bon enterè. Konsa, lajan ou travay pou ou, menm pandan w ap dòmi.
+  visual: a small green plant growing out of a jar of coins on a windowsill, macro photography, sunrise
+  camera: drift
+- narration: 'Twazyèm etap la: manje. Kwit lakay ou, pote manje travay. Sa ka sove ou desan dola pa mwa: de mil katsan dola nan yon ane.'
+  visual: woman packing a healthy homemade lunch into a glass container in a bright kitchen
+  characters:
+  - nadia
+  location: apartment
+  title: 'Etap 3: Manje lakay'
+  top_text: +$2,400 / ane
+  camera: push_in
+- narration: 'Katriyèm etap la: abònman. Televizyon, mizik, jim ou pa itilize... anile yo. Senkant dola pa mwa, se sisan dola pa ane.'
+  visual: a hand holding a smartphone over a sofa with a television in the background, cozy living room, evening
+  title: 'Etap 4: Abònman'
+  top_text: +$600 / ane
+  camera: pan_left
+- narration: 'Senkyèm etap la: telefòn ak asirans. Konpare pri yo chak ane. Yon plan pi bon mache ak yon meyè asirans machin ka sove ou nèfsan swasant dola.'
+  visual: Black Haitian-American man in his 30s comparing papers at a desk with a smartphone and car keys, focused, office light
+  title: 'Etap 5: Telefòn ak asirans'
+  top_text: +$960 / ane
+  camera: drift
+  seed: 110
+- narration: 'Sizyèm etap la: makèt. Fè yon lis anvan ou soti, epi respekte l. Karant dola pa mwa, se katsan katreven dola pa ane.'
+  visual: woman pushing a shopping cart with fresh vegetables in a bright supermarket aisle
+  characters:
+  - nadia
+  title: 'Etap 6: Makèt ak yon lis'
+  top_text: +$480 / ane
+  camera: pan_right
+- narration: 'Setyèm etap la, sa ki pi enpòtan: fè plis lajan. Èdtan anplis, yon ti biznis, oswa vann sa ou pa bezwen ankò.'
+  visual: smiling Black Haitian-American man in an apron selling homemade pastries from a plain wooden table outdoors, sunny park
+  title: 'Etap 7: Fè plis lajan'
+  camera: push_in
+  seed: 112
+  negative: text, letters, numbers, watermark, logo, signature, picture frame, border, blurry, deformed hands, extra fingers, extra limbs, cartoon, signs, banner, sign board, menu
+- narration: Twasan dola anplis chak mwa, se twa mil sisan dola nan yon ane.
+  visual: hands counting dollar bills on a wooden table, warm light, shallow depth of field
+  top_text: +$3,600 / ane
+  camera: push_in_fast
+  sfx:
+  - cash@0.5
+- narration: Epi lè ranbousman taks ou rive, oswa ou jwenn yon bonis, pa depanse l. Mete omwen de mil dola dirèk nan epay ou.
+  visual: woman opening an envelope at a kitchen table and smiling, afternoon light
+  characters:
+  - nadia
+  location: apartment
+  top_text: +$2,000
+  camera: drift
+- narration: Ann fè kalkil la ansanm. Manje, abònman, telefòn, makèt, lajan anplis, ak ranbousman taks.
+  visual: close-up of a calculator, a notebook and a pen on a desk, soft light
+  camera: push_in
+  sfx:
+  - typewriter@0.5
+- narration: Sa fè dis mil karant dola nan yon ane. [pause 0.5] Wi, ou ka fè l!
+  visual: joyful woman raising her arms in celebration in a sunlit living room
+  characters:
+  - nadia
+  location: apartment
+  top_text: 'TOTAL: $10,040'
+  camera: pull_out
+  sfx:
+  - ding@0.3
+- narration: 'Sekrè a se pa sere tout lajan ou. Sekrè a se disiplin: ti kras chak jou, menm lè ou pa anvi.'
+  visual: woman dropping coins into a big glass jar on a windowsill, smiling softly, morning light
+  characters:
+  - nadia
+  location: apartment
+  camera: push_in
+- narration: Kòmanse jodi a, pa demen. Ane pwochèn, se ou menm k ap di tèt ou mèsi.
+  visual: sunrise over an American city skyline seen from a balcony, hopeful warm light
+  camera: pull_out
+- narration: Si videyo sa a ede ou, pataje l ak yon moun ou renmen. Videyo sa a se pou edikasyon sèlman, li pa yon konsèy finansye.
+  visual: a happy Black Haitian-American family, mother, father and young daughter laughing together on a sofa, cozy living room, warm evening light
+  lower_third: Edikasyon sèlman, se pa konsèy finansye
+  camera: drift
+  seed: 119
