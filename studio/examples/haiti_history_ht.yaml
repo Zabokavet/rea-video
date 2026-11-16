@@ -1,0 +1,91 @@
+# "Create a cinematic documentary in Haitian Creole about the history of Haiti."
+# Render:  rea-studio make studio/examples/haiti_history_ht.yaml
+title: "Istwa Ayiti"
+language: ht
+format: "16:9"
+style: historical
+duration: 120
+seed: 1804
+voice: {voice: hat, delivery: documentary}     # Meta MMS-TTS Kreyòl (non-commercial). Commercial: voice: ht (eSpeak)
+music: {engine: score, mood: historical}
+subtitles: {style: documentary}
+thumbnail: {text: "1804: Libète", accent_words: ["1804:"], scene: 10}
+visual_style: "painterly historical realism, Caribbean colonial era, dramatic chiaroscuro light, rich earthy colors, cinematic composition, full bleed, highly detailed"
+negative: "text, watermark, letters, signature, picture frame, border, modern clothing, cars, electricity poles, plastic, blurry, deformed hands, extra limbs"
+characters:
+  toussaint:
+    description: "Black Haitian general in his 50s, lean face, grey temples, white headscarf under a bicorne hat, dark blue 1800s military coat with gold epaulettes"
+    seed: 1743
+  dessalines:
+    description: "Black Haitian general in his 40s, strong jaw, short beard, intense eyes, dark blue 1800s military coat with red collar and gold epaulettes"
+    seed: 1758
+locations:
+  north_plain:
+    description: "vast sugarcane plain of northern Saint-Domingue, green mountains behind, colonial plantation buildings"
+  citadel:
+    description: "massive stone mountaintop fortress in northern Haiti, dense tropical forest, mountains and clouds"
+scenes:
+  - narration: "Anvan non sa a te ekri sou okenn kat, pèp Tayino yo te rele tè sa a Ayiti: tè ki gen anpil mòn."
+    visual: "aerial view of lush green tropical mountains rising from a turquoise Caribbean sea at dawn, mist in the valleys"
+    camera: parallax_in
+    sfx: ["ambience:ocean", "ambience:jungle"]
+  - narration: "An mil katsan katrevendouz, bato Kristòf Kolon rive sou kòt nò a. [pause 0.4] Lavi Tayino yo pa t janm menm ankò."
+    visual: "three 15th century wooden sailing ships with white sails anchored near a tropical beach at sunset, Taino people watching from the palm trees"
+    camera: pan_right
+    motion: animate
+    title: "1492"
+    sfx: ["ambience:ocean"]
+  - narration: "Fransè yo fè koloni Sendomeng, koloni ki te pi rich nan mond lan, ak sik, kafe ak endigo."
+    visual: "colonial sugar plantation with a white mansion, windmill and sugarcane fields, wide shot, golden afternoon light"
+    location: north_plain
+    camera: drift
+  - narration: "Men richès sa a te bati sou do plis pase senksan mil moun yo te kidnape nan Afrik e yo te mete nan esklavaj."
+    visual: "enslaved African men and women cutting sugarcane under a harsh sun, somber, dignified faces, wide shot"
+    location: north_plain
+    camera: push_in
+    sfx: ["ambience:wind"]
+  - narration: "Nan mwa out mil sètsan katrevenonz, nan Bwa Kayiman, yo fè yon seremoni nan mitan lannwit. [pause 0.4] Yo fè sèman: libète oswa lanmò."
+    visual: "night ceremony in a dense tropical forest clearing, a large bonfire, silhouettes of people gathered, storm clouds and lightning"
+    camera: parallax_in
+    motion: animate
+    title: "1791"
+    transition: fadeblack
+    sfx: ["ambience:fire", "boom@0.5"]
+  - narration: "Revolisyon an pete tankou dife nan tout plenn nò a."
+    visual: "sugarcane fields burning at night across a wide plain, tall orange flames and drifting smoke, dark mountains on the horizon, wide landscape"
+    location: north_plain
+    camera: pull_out
+    sfx: ["ambience:fire", "impact@0.2"]
+  - narration: "Tousen Louvèti, yon ansyen esklav ki te konn li ak ekri, vin tounen youn nan pi gwo jeneral epòk li."
+    visual: "painted portrait of a general on horseback on a hill, looking over his army at dawn"
+    characters: [toussaint]
+    camera: push_in
+    focus: [0.5, 0.35]
+  - narration: "An mil uisan de, Napoleyon voye yon gwo lame pou remete esklavaj. Yo arete Tousen, yo mennen l an Frans, kote li mouri nan prizon."
+    visual: "a fleet of French warships with tall sails entering a Caribbean harbor under grey stormy skies"
+    camera: pan_left
+    sfx: ["ambience:wind"]
+  - narration: "Men Jan-Jak Desalin pran tèt batay la. Nan mwa novanm mil uisan twa, nan batay Vètyè, lame endijèn nan kraze lame fransè a."
+    visual: "painted battle scene, revolutionary soldiers charging up a hill toward a fort through cannon smoke, a general raising his sword"
+    characters: [dessalines]
+    camera: push_in
+    title: "1803"
+    transition: fadeblack
+    sfx: ["boom@0.3", "impact@3.5"]
+  - narration: "Premye janvye mil uisan kat, nan Gonayiv, Desalin deklare endepandans Ayiti. [pause 0.5] Premye repiblik nwa lib nan mond lan te fèt."
+    visual: "a crowd of jubilant Black Haitian soldiers and civilians raising their arms in celebration in a colonial town square at sunrise, a general in a dark blue coat addressing the crowd"
+    characters: [dessalines]
+    camera: pull_out
+    title: "1804"
+    sfx: ["crowd", "riser@0"]
+  - narration: "Pou pwoteje libète sa a, Anri Kristòf fè bati Sitadèl Laferyè sou tèt yon mòn: pi gwo fòtrès nan Amerik yo."
+    visual: "low-angle wide shot of a colossal man-made stone fortress with thick walls and cannon openings, shaped like a ship's prow, on a mountain summit, clouds swirling around it, golden rim light"
+    location: citadel
+    camera: parallax_in
+    sfx: ["ambience:wind"]
+  - narration: "Jodi a, istwa sa a rete yon limyè pou tout pèp k ap goumen pou libète. [pause 0.6] Ayiti, se la libète te kòmanse."
+    visual: "sunrise over Haitian mountains seen from the walls of an old stone fortress, warm hopeful light, birds flying"
+    location: citadel
+    camera: pull_out
+    transition: dissolve
+    sfx: ["ambience:wind"]

@@ -1,0 +1,41 @@
+# "Make a 30-second TikTok in English about compound interest."
+# Render:  rea-studio make studio/examples/compound_interest_short_en.yaml
+title: "The 8th Wonder of the World"
+language: en
+format: "9:16"
+style: short
+duration: 30
+title_card: false
+voice: {voice: am_michael, delivery: energetic}
+music: {engine: score, mood: financial}
+subtitles: {style: karaoke}
+thumbnail: {text: "$48K becomes $262K", accent_words: ["$262K"]}
+visual_style: "vertical composition, clean modern photography, warm light, high detail, shallow depth of field"
+scenes:
+  - narration: "Put away one hundred dollars a month."
+    visual: "close-up of a hand dropping coins into a glass jar on a wooden table, warm window light"
+    top_text: "$100 / month"
+    camera: push_in_fast
+  - narration: "Do nothing else. Just wait."
+    visual: "a young woman relaxing on a sofa reading a book, cozy living room, afternoon light"
+    camera: drift
+  - narration: "After forty years at seven percent, you've put in forty-eight thousand dollars."
+    visual: "a tall stack of dollar bills on a desk next to a calendar, soft light"
+    top_text: "You put in: $48,000"
+    camera: push_in
+  - narration: "But your account shows about two hundred and sixty thousand."
+    visual: "golden coins overflowing from a jar, sparkling light, dark background"
+    top_text: "You have: ~$262,000"
+    camera: push_in_fast
+    sfx: ["cash@0.2"]
+  - narration: "That gap is compound interest: your money earning money on its own earnings."
+    visual: "a small green plant growing out of a pile of coins, macro photography, morning light"
+    camera: push_in
+  - narration: "The best time to start was yesterday. The second best is today."
+    visual: "sunrise over a city skyline seen from a balcony, hopeful mood"
+    top_text: "Start today"
+    camera: pull_out
+  - narration: "Educational only, not financial advice. Follow for more."
+    visual: "a notebook with a handwritten budget plan and a coffee cup on a desk, top-down view"
+    lower_third: "Not financial advice"
+    camera: drift

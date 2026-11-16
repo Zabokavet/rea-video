@@ -1,0 +1,7 @@
+projects/
+examples/**/work/
+examples/**/output/
+examples/work/
+examples/output/
+*.egg-info/
+__pycache__/

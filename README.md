@@ -27,6 +27,12 @@ Left: a TikTok ad shot on a phone. Right: an AI remake with another product. rea
 
 </div>
 
+## Local AI video studio (new)
+
+`studio/` adds the other direction: **make** videos locally from a one-line request, with free, open-source models
+(Kokoro / Piper / MMS-TTS voices including Haitian Creole, Stable Diffusion keyframes, AnimateDiff motion,
+procedural music and SFX, faster-whisper subtitles, FFmpeg edit and mastering). See [studio/README.md](studio/README.md).
+
 ## Quick start
 
 rea-video is built for AI agents. In Claude Code, Codex or any agent that can run commands, say:

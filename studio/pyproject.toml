@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rea-studio"
+version = "0.1.0"
+description = "Local, open-source AI video production studio: script -> images/clips -> narration -> music/SFX -> subtitles -> edited MP4 + thumbnail."
+requires-python = ">=3.10,<3.13"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "numpy>=1.24",
+  "Pillow>=9.0",
+  "PyYAML>=6.0",
+  "soundfile>=0.12",
+  "scipy>=1.10",
+  "opencv-python-headless>=4.8",
+]
+
+[project.optional-dependencies]
+# Each extra is optional; the studio degrades gracefully and `rea-studio doctor` reports what is missing.
+voice = ["kokoro>=0.9.4", "piper-tts>=1.2", "transformers>=4.46,<5", "torch>=2.2"]
+image = ["diffusers>=0.32", "transformers>=4.46,<5", "accelerate", "peft", "safetensors", "torch>=2.2"]
+subs = ["faster-whisper>=1.0"]
+all = ["rea-studio[voice,image,subs]"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+rea-studio = "rea_studio.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rea_studio*"]
+
+[tool.setuptools.package-data]
+rea_studio = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
