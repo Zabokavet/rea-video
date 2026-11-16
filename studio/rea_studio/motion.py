@@ -124,9 +124,24 @@ def depth_map(img: Image.Image) -> np.ndarray:
 def camera_clip(keyframe: Path, out: Path, duration: float, W: int, H: int, fps: int = 30,
                 move: str = "push_in", focus=(0.5, 0.5), upscale_method: str = "auto") -> Path:
     from .images import upscale
-    img = Image.open(keyframe).convert("RGB")
     over = 1.25  # source is larger than the frame so moves stay sharp
-    src_img = upscale(img, int(W * over), int(H * over), upscale_method)
+    tw, th = int(W * over), int(H * over)
+    # Upscaling (Real-ESRGAN on CPU ~1 min) is cached next to the keyframe: re-renders and other-language
+    # versions that reuse the keyframe skip it.
+    import hashlib
+
+    from .util import STUDIO_HOME
+    digest = hashlib.sha256(Path(keyframe).read_bytes()).hexdigest()[:20]
+    cache = STUDIO_HOME / "cache" / "upscaled" / f"{digest}_{tw}x{th}_{upscale_method}.png"
+    if cache.exists():
+        src_img = Image.open(cache).convert("RGB")
+    else:
+        src_img = upscale(Image.open(keyframe).convert("RGB"), tw, th, upscale_method)
+        try:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            src_img.save(cache)
+        except OSError:
+            pass
     src = np.asarray(src_img)
     depth = None
     if move.startswith("parallax"):
@@ -195,20 +210,25 @@ def animate_clip(keyframe: Path, out: Path, duration: float, W: int, H: int, fps
         z, cx, cy, r = move_params(move, i / (frames - 1))
         init.append(Image.fromarray(_view(base, gw, gh, 1 + (z - 1) * 0.5, cx, cy, r * 0.5)))
     res = _ad_pipe(video=init, prompt=prompt, negative_prompt=negative, strength=strength, guidance_scale=1.0,
+                   height=gh, width=gw,
                    num_inference_steps=4, decode_chunk_size=2,
                    generator=torch.Generator("cpu").manual_seed(seed))
     gen = res.frames[0]
     with tempfile.TemporaryDirectory() as d:
-        raw = Path(d) / "raw.mp4"
+        raw = out.with_suffix(".ai_raw.mp4")  # kept for inspection / re-timing
         wr = FFmpegWriter(raw, gw, gh, 8, crf=12)
         for f in gen:
-            wr.write(np.asarray(f.convert("RGB")))
+            f = f.convert("RGB")
+            if f.size != (gw, gh):  # never let a size mismatch corrupt the raw stream
+                f = f.resize((gw, gh), Image.LANCZOS)
+            wr.write(np.asarray(f))
         wr.close()
         # 16 frames @8fps = 2 s. Motion-interpolate to target fps, slow to fill, ping-pong if still short.
         src_len = frames / 8
         slow = min(2.5, max(1.0, duration / src_len))
         loops = max(1, math.ceil(duration / (src_len * slow * 2)))
-        vf = (f"setpts={slow:.3f}*PTS,minterpolate=fps={fps}:mi_mode=mci:mc_mode=aobmc:vsbmc=1,"
+        # frame blending (not motion-compensated interpolation, which makes block artifacts on AI frames)
+        vf = (f"setpts={slow:.3f}*PTS,framerate=fps={fps}:interp_start=0:interp_end=255:scene=100,"
               f"scale={W}:{H}:flags=lanczos,unsharp=5:5:0.6")
         from .util import ffmpeg
         mid = Path(d) / "mid.mp4"

@@ -106,22 +106,56 @@ def transcribe(media: Path, lang: str | None = None, model: str = "small") -> li
 # ------------------------------------------------------------------ chunking
 def chunk(words: list[Word], max_chars: int = 42, max_lines: int = 2, max_dur: float = 6.0,
           max_words: int | None = None) -> list[list[Word]]:
-    cues, cur = [], []
+    """Readable cues: break at sentence ends and pauses, prefer commas when a cue fills up, respect limits."""
     limit = max_chars * max_lines
+    cues: list[list[Word]] = []
+    cur: list[Word] = []
+
+    def length(ws):
+        return len(" ".join(w.text for w in ws))
+
     for w in words:
-        text_len = len(" ".join(x.text for x in cur + [w]))
-        too_long = cur and (text_len > limit or (w.end - cur[0].start) > max_dur or
-                            (max_words and len(cur) >= max_words))
-        if too_long:
+        if cur and (w.start - cur[-1].end > 0.6):  # pause / scene change
             cues.append(cur)
             cur = []
+        if cur and (length(cur + [w]) > limit or (w.end - cur[0].start) > max_dur or
+                    (max_words and len(cur) >= max_words)):
+            # split at the last comma in the back 60% of the cue, if any
+            cut = next((i + 1 for i in range(len(cur) - 1, 0, -1)
+                        if re.search(r"[,;:]$", cur[i].text) and length(cur[:i + 1]) >= limit * 0.4), None)
+            if cut and cut < len(cur):
+                cues.append(cur[:cut])
+                cur = cur[cut:]
+            else:
+                cues.append(cur)
+                cur = []
         cur.append(w)
-        if re.search(r"[.!?…]$", w.text) and len(" ".join(x.text for x in cur)) > max_chars * 0.5:
+        if re.search(r"[.!?…]$", w.text):
             cues.append(cur)
             cur = []
     if cur:
         cues.append(cur)
-    return cues
+    # merge orphan tails ("l'esclavage.") into the previous cue of the same sentence when it still reads well
+    merged: list[list[Word]] = []
+    for c in cues:
+        if (merged and length(c) < 16 and not max_words
+                and c[0].start - merged[-1][-1].end < 0.3 and not re.search(r"[.!?…]$", merged[-1][-1].text)
+                and length(merged[-1] + c) <= limit + 14):
+            merged[-1] = merged[-1] + c
+        else:
+            merged.append(c)
+    return merged
+
+
+def _ends(cues: list[list[Word]], pad: float = 0.15) -> list[float]:
+    """Cue end times: a little hang time, but never overlapping the next cue."""
+    out = []
+    for i, c in enumerate(cues):
+        e = c[-1].end + pad
+        if i + 1 < len(cues):
+            e = min(e, cues[i + 1][0].start - 0.04)
+        out.append(max(e, c[0].start + 0.3))
+    return out
 
 
 def _wrap(text: str, max_chars: int) -> str:
@@ -132,6 +166,8 @@ def _wrap(text: str, max_chars: int) -> str:
     for i in range(1, len(words)):
         a, b = " ".join(words[:i]), " ".join(words[i:])
         d = abs(len(a) - len(b)) + (0 if len(a) <= max_chars and len(b) <= max_chars else 100)
+        d -= 12 if re.search(r"[,;:.]$", a) else 0          # prefer breaking after punctuation
+        d += 6 if len(words[i]) <= 2 else 0                  # avoid starting a line with a tiny word
         if d < best_diff:
             best, best_diff = a + "\n" + b, d
     return best
@@ -145,8 +181,8 @@ def _ts(t: float, sep: str = ",") -> str:
 
 def write_srt(cues: list[list[Word]], path: Path, max_chars: int = 42) -> Path:
     lines = []
-    for i, c in enumerate(cues, 1):
-        lines += [str(i), f"{_ts(c[0].start)} --> {_ts(c[-1].end + 0.15)}", _wrap(" ".join(w.text for w in c), max_chars), ""]
+    for i, (c, e) in enumerate(zip(cues, _ends(cues)), 1):
+        lines += [str(i), f"{_ts(c[0].start)} --> {_ts(e)}", _wrap(" ".join(w.text for w in c), max_chars), ""]
     path.write_text("\n".join(lines), encoding="utf-8")
     return path
 
@@ -208,8 +244,8 @@ def write_ass(cues: list[list[Word]], path: Path, W: int, H: int, style: str = "
     style = style if style in CAPTION_STYLES else "clean"
     upper = CAPTION_STYLES[style][9]
     ev = []
-    for c in cues:
-        st, en = c[0].start, c[-1].end + 0.12
+    for c, en in zip(cues, _ends(cues, 0.12)):
+        st = c[0].start
         if style in ("bold", "karaoke"):
             # one event per active word: whole group visible, current word highlighted + popped
             for i, w in enumerate(c):

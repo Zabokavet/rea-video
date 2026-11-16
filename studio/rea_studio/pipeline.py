@@ -403,9 +403,10 @@ class Build:
         fontsdir = f":fontsdir='{str(fd)}'" if fd else ""
         chain.append(f"{prev}{grade},subtitles='{ass}'{fontsdir},format=yuv420p[v]")
         silent = self.work / f"video_{self.W}x{self.H}.mp4"
-        crf = "21" if self.preview else "17"
+        crf = "21" if self.preview else str(self.p.get("crf", 18))
         ffmpeg(*inputs, "-filter_complex", ";".join(chain), "-map", "[v]", "-t", f"{self.total:.3f}", "-r", str(self.fps),
-               "-c:v", "libx264", "-preset", "medium" if self.preview else "slow", "-crf", crf, "-profile:v", "high",
+               "-c:v", "libx264", "-preset", "fast" if self.preview else "medium", "-tune", "film", "-crf", crf,
+               "-maxrate", "8M" if self.H >= 1080 or self.W >= 1080 else "5M", "-bufsize", "16M", "-profile:v", "high",
                "-pix_fmt", "yuv420p", silent)
         self.silent = silent
         self._stage("assemble", t0)

@@ -38,13 +38,13 @@ PRESETS: dict[str, dict] = {
                         music="documentary", delivery="documentary", lufs=-16,
                         visual_suffix="cinematic documentary photograph, natural light, 35mm film, rich detail, "
                                       "realistic, award-winning photojournalism"),
-    "cinematic": dict(grade="teal_orange", grain=6, vignette=True, letterbox=True, captions="cinematic",
+    "cinematic": dict(grade="teal_orange", grain=4, vignette=True, letterbox=True, captions="cinematic",
                       transitions=["fadeblack", "dissolve"], transition_duration=1.0,
                       moves=["parallax_in", "orbit", "push_in", "parallax_right", "drift"],
                       music="epic", delivery="cinematic", lufs=-16, scene_seconds=(6, 10),
                       visual_suffix="cinematic film still, anamorphic lens, dramatic lighting, volumetric light, "
                                     "shallow depth of field, color graded, 8k"),
-    "historical": dict(grade="historical", grain=9, vignette=True, captions="documentary",
+    "historical": dict(grade="historical", grain=5, vignette=True, captions="documentary",
                        transitions=["fadeblack", "dissolve"], transition_duration=1.0,
                        moves=["push_in", "parallax_in", "pan_left", "drift"], music="historical",
                        delivery="documentary", lufs=-16,

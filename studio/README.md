@@ -98,7 +98,7 @@ every project.yaml option, and [`examples/`](examples/) for complete projects.
 
 | Tier | Keyframe | Motion | 2-min video |
 |---|---|---|---|
-| CPU only (4 cores, 16 GB) | SD1.5+LCM, ~60–90 s | camera/parallax (seconds), AnimateDiff ~3–5 min per shot | ~30–40 min |
+| CPU only (4 cores, 16 GB) | SD1.5+LCM, ~60–120 s | camera/parallax ~1–2 min per 1080p shot (incl. Real-ESRGAN), AnimateDiff ~4–6 min per shot | ~60–75 min (measured: 2-min, 12-scene film); `--preview` ~20 min |
 | GPU ≤8 GB | SD1.5+LCM, ~2 s | AnimateDiff ~20 s per shot | ~5 min |
 | GPU 12–16 GB | SDXL-Lightning | + Wan2.2-TI2V-5B | ~10–20 min with Wan |
 | GPU ≥24 GB | FLUX.1-schnell | + Wan2.2 at 720p | ~15–30 min with Wan |

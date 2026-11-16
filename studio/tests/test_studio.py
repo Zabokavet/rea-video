@@ -59,6 +59,20 @@ def test_subtitle_chunking_and_files(tmp_path):
     assert "PlayResY: 1920" in txt and ST.HIGHLIGHT in txt and ",Top,," in txt
 
 
+def test_cues_break_at_sentences_and_never_overlap():
+    words = ST.words_from_sentences([(0.0, 5.0, "Anvan non sa a te ekri sou okenn kat ansyen, pèp Tayino yo te rele tè sa a Ayiti: tè ki gen anpil mòn."),
+                                     (5.2, 7.0, "Lavi yo chanje."),
+                                     (9.0, 11.0, "Yon lòt sèn kòmanse la.")])
+    cues = ST.chunk(words, 42)
+    texts = [" ".join(w.text for w in c) for c in cues]
+    assert texts[0][-1] in ",;:"                    # split at a natural pause, not mid-phrase
+    assert all(not t.startswith(("a ", "sa ")) for t in texts)
+    assert "Lavi yo chanje." in texts                # sentence end forces a break
+    assert texts[-1] == "Yon lòt sèn kòmanse la."    # a pause never merges across scenes
+    ends = ST._ends(cues)
+    assert all(ends[i] <= cues[i + 1][0].start for i in range(len(cues) - 1))
+
+
 def test_styles_and_grade():
     st = S.get("tiktok")
     assert st["name"] == "short" and st["aspect"] == "9:16"
