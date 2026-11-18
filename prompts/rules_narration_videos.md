@@ -27,7 +27,7 @@ Do not announce your plans. Show the results and let people ask how.
 A man who talks about everything he is doing is doing very little.
 Listen twice as much as you speak. People tell you exactly who they are if you let them talk long enough.
 Silence after disrespect is not weakness. It is a sentence being prepared.
-Never correct people in public. Win in private or not at all.
+Never correct people in public. Win in private, or don't win at all.
 If you must speak, ask questions. The one asking questions controls the conversation.
 Your silence makes loud people nervous. Keep it.
 There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
@@ -56,7 +56,7 @@ Begging for attention teaches people your attention is worthless.
 Walk away from the table when respect is no longer being served.
 You do not lose real friends when you stop chasing. You lose the audience.
 Give people the gift of your absence and watch what your presence was worth.
-Chase your goals with the energy you were chasing people.
+Chase your goals with the energy you wasted chasing people.
 The right people meet you halfway. Everyone else was a lesson in disguise.
 There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
 
@@ -122,7 +122,7 @@ A small circle is not loneliness. It is quality control.
 If everyone knows your business, your circle is not a circle. It is a broadcast.
 Three real ones are worth more than thirty who applaud.
 Audit your circle every year. Loyalty expires when interests change.
-The bigger the circle, the thinner the trust.
+The bigger the circle, the thinner the trust becomes.
 Never promote a friend to family status on words alone. Time promotes people, not promises.
 Some people are for seasons. Grief comes from giving seasonal people permanent seats.
 Your circle should make you sharper, not just comfortable.
@@ -162,8 +162,8 @@ There are deeper rules than these, and they are not taught for free. Follow this
 SCRIPT:
 Lend a friend money and you will lose one of the two. Choose in advance which one.
 Never lend what you cannot afford to give away as a gift.
-Money conversations end more friendships than betrayals do.
-If a friend profits from you and calls it loyalty, check the direction of the profit.
+Money conversations have ended more friendships than betrayals ever did.
+If a friend profits from you and calls it loyalty, check who is really profiting.
 Split the bill of life fairly, or stop sitting at that table.
 Never do business on a handshake with a man who avoids paperwork.
 Your success will make some friends into accountants of your blessings.
@@ -197,7 +197,7 @@ The quiet man hears the offer behind the offer.
 He does not compete for attention, so attention competes for him.
 His enemies cannot prepare for what they cannot predict.
 In every negotiation, fear the one who is comfortable with silence.
-Still water is not empty. It is deep.
+Still water is not empty. It runs deep.
 There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
 
 ## VIDEO 14 — Rules of Negotiation
@@ -231,22 +231,22 @@ There are deeper rules than these, and they are not taught for free. Follow this
 ## VIDEO 16 — Control the Room Without Talking
 SCRIPT:
 The most powerful man in the room is rarely the one talking.
-Arrive on time, dressed like the outcome you want.
+Arrive on time. Dress like the outcome you want.
 Stand where you can see everyone. Power begins with visibility.
-Slow movements signal control. Rushed movements confess anxiety.
-Let others fill the silence. Information flows toward the patient.
+Moving slowly signals control. Rushed movements confess anxiety.
+Let them break the silence first. Information flows toward the patient.
 Nod less. Agreement given too cheaply buys nothing.
 Your posture speaks before your introduction does.
 The man who takes notes is remembered as the man who decides.
 Never check your phone while someone talks to you. Attention is currency — spend it like it matters.
-Rooms are controlled by the person everyone checks before answering. Become that person.
+The room belongs to the person everyone looks at before they answer. Become that person.
 There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
 
 ## VIDEO 17 — The Psychology of Jealousy
 SCRIPT:
 Your growth will offend the people who benefited from your stagnation.
 Jealousy rarely says its name. It arrives dressed as concern and advice.
-They were comfortable when you were struggling. Comfort was the friendship's price.
+They were comfortable when you were struggling. Comfort was the price of the friendship.
 A jealous friend studies your success like an insult.
 Do not shrink to make anyone comfortable. Their discomfort is their homework.
 Some people do not want you to fail. They just cannot afford for you to pass them.
@@ -277,7 +277,7 @@ No is a complete sentence. Explanations are negotiations you did not agree to.
 People who get angry at your no were profiting from your yes.
 Guilt is the tax manipulators charge for your freedom.
 You are not responsible for the disappointment of adults who planned around your obedience.
-Say no early. A late no costs triple.
+Say no early. A late no costs you triple.
 Protect your time like money, because everyone else is spending it like it is theirs.
 The right people adjust. The wrong people reveal themselves. Both are wins.
 Practice no on small things so it is loaded for the big ones.

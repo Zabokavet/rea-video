@@ -92,18 +92,6 @@ for k in range(int(END / 2.0) + 1):
     pan = 0.5 + 0.18 * np.sin(k)
     music[i0:i0 + len(tt), 0] += tone * 0.055 * (1 - pan) * 2
     music[i0:i0 + len(tt), 1] += tone * 0.055 * pan * 2
-# slow heartbeat pulse (lub-dub) every 1.8 s, very low
-for k in range(int(END / 1.8)):
-    for off, amp in ((0.0, 1.0), (0.22, 0.6)):
-        i0 = int((k * 1.8 + 0.9 + off) * SR); L = int(0.25 * SR)
-        if i0 + L >= n:
-            continue
-        tt = np.arange(L) / SR
-        thump = np.sin(2 * np.pi * (58 - 60 * tt) * tt) * np.exp(-tt * 22) * amp
-        music[i0:i0 + L] += (thump * 0.16)[:, None]
-# air
-air = bp(r.standard_normal(n), 1800, 6000) * (0.004 + 0.003 * np.sin(2 * np.pi * t / 7))
-music += np.stack([air, np.roll(air, 999)], 1)
 # fade in/out
 music *= np.clip(t / 0.6, 0, 1)[:, None] * np.clip((END - t) / 2.0, 0, 1)[:, None]
 
@@ -115,33 +103,8 @@ music *= (1 - 0.55 * env)[:, None]
 
 # ---------------------------------------------------------------- foley
 fx = np.zeros((n, 2), np.float32)
-# opening low hit under the hook
-L = int(2.2 * SR); tt = np.arange(L) / SR
-hit = np.sin(2 * np.pi * (48 - 14 * tt) * tt) * np.exp(-tt * 2.2) * 0.55 + lp(r.standard_normal(L), 160) * np.exp(-tt * 9) * 0.5
-fx[:L] += hit[:, None] * 0.9
-# page turns: two swishes (lift + flip), panned right -> left
-for tr in TL["turns"]:
-    i0 = int((tr["t0"] - 0.05) * SR); L = int(0.95 * SR); tt = np.arange(L) / SR
-    nz = bp(r.standard_normal(L), 700, 5500)
-    e = 0.6 * np.exp(-((tt - 0.12) / 0.06) ** 2) + 1.0 * np.exp(-((tt - 0.45) / 0.13) ** 2) + 0.25 * np.exp(-((tt - 0.72) / 0.05) ** 2)
-    pan = np.clip(1 - tt / 0.9, 0, 1)
-    sw = nz * e * 0.22
-    fx[i0:i0 + L, 0] += sw * (1 - pan * 0.6)
-    fx[i0:i0 + L, 1] += sw * (0.4 + pan * 0.6)
-# pen scratch while underlining (soft ballpoint friction, follows each spoken word)
-scr = bp(r.standard_normal(n), 2500, 7500, 2)
-grain = 0.6 + 0.4 * np.abs(np.sin(2 * np.pi * 37 * t + 3 * np.sin(2 * np.pi * 3 * t)))
-pen_env = np.zeros(n, np.float32)
-for s in TL["sent"]:
-    for w in s["words"]:
-        a, b = int((s["t0"] + w["s"]) * SR), int((s["t0"] + w["e"]) * SR)
-        pen_env[a:b] = 1
-k = int(0.03 * SR)
-pen_env = np.convolve(pen_env, np.ones(k) / k, mode="same")
-fx += (scr * grain * pen_env * 0.016)[:, None]
-
 # ---------------------------------------------------------------- mix + loudness
-mix = voice[:, None] * 1.0 + music * 0.55 + fx
+mix = voice[:, None] * 1.0 + music * 0.55
 mix = mix[: int(END * SR)]
 mix.astype(np.float32).tofile(f"{WD}/mix_raw.f32")
 for name, sig in (("voice_only", voice[: int(END * SR), None] * np.ones((1, 2))), ("music_only", music[: int(END * SR)] * 0.55)):
