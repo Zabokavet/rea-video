@@ -305,3 +305,288 @@ There are deeper rules than these, and they are not taught for free. Follow this
 Move in silence. Understand human nature. Stay in control.
 Which rule hit you hardest? 👇
 #HumanNature #DarkPsychology #PowerDynamics #MasculineMindset #MensSelfImprovement #Mindset
+
+
+---
+
+# SECOND LAUNCH: VIDEOS 21–40
+
+## VIDEO 21 — Discipline Over Motivation
+SCRIPT:
+Motivation is a visitor. Discipline is the one who lives in the house.
+Do it tired. Do it bored. Do it when nobody is clapping.
+The man who waits to feel ready will wait for the rest of his life.
+Small promises kept to yourself build a confidence nobody can take away.
+Your habits are voting for the person you will become. Count the votes.
+Comfort is the quiet enemy. It never attacks. It just keeps you seated.
+Own the morning and the day has fewer ways to beat you.
+Discipline feels like punishment at first. Later it feels like freedom.
+Stop negotiating with yourself. Decide once, then obey the decision.
+The pain of discipline weighs ounces. The pain of regret weighs tons.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 22 — The Rules of Self-Control
+SCRIPT:
+The man who cannot control himself will always be controlled by someone else.
+Every urge you obey becomes a little stronger. Every urge you refuse becomes weaker.
+Never make a promise when you are happy or a decision when you are angry.
+Delay is a weapon. Ten minutes of waiting has saved more men than any advice.
+If your phone decides your mood, someone else is holding your remote.
+Strong men are not those without temptation. They are those who walk past it.
+Control your mouth when you are winning. Control your face when you are losing.
+Your appetite will always ask for more. Your purpose decides how much.
+Self-control is not suppression. It is choosing the better reward.
+Master yourself first. Everything else becomes easier to master.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 23 — How to Be Taken Seriously
+SCRIPT:
+People take you seriously when you take your own word seriously.
+Say less, but make every sentence count.
+Never apologize for things that do not need an apology.
+Be on time. Lateness tells people their time is cheaper than yours.
+Stop laughing after your own sentences. It tells people you do not believe them.
+Speak slower than you think you should. Calm sounds like certainty.
+Do what you said you would do, even when nobody remembers you said it.
+Dress like the man you are becoming, not the man you were.
+Do not argue for attention. State your position once and let it stand.
+Respect follows the man who clearly knows where he is going.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 24 — The Rules of Being Alone
+SCRIPT:
+Learn to be alone without feeling lonely. That is where your strength begins.
+A man who cannot sit with his thoughts will sit with anyone just to escape them.
+Solitude is not punishment. It is where you finally hear your own voice.
+Being alone is better than being surrounded by people who drain you.
+The best work is built in rooms with no audience.
+When you are comfortable alone, you stop accepting bad company.
+Use quiet seasons to sharpen yourself. Loud seasons will test what you built.
+Some of your best decisions will be made when nobody is watching.
+Lonely people chase company. Strong people choose it.
+Make peace with your own company and you will never be desperate again.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 25 — The Psychology of First Impressions
+SCRIPT:
+People decide who you are in the first seven seconds. Make them count.
+Your posture arrives before your words do.
+A firm handshake and steady eyes say more than a long introduction.
+Use their name once. People remember those who remember them.
+Ask about them first. Interest is the fastest way to be interesting.
+Never rush to fill the silence. Calm people seem more confident.
+Smile with your eyes, not just your mouth. People can tell the difference.
+Do not try to impress. Try to understand. It impresses more.
+Leave before the energy drops. Always leave people wanting more.
+First impressions open the door. Character decides if you stay in the room.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 26 — How to Deal With Betrayal
+SCRIPT:
+Betrayal never comes from enemies. It comes from people you let close.
+Do not ask why they did it. Ask why you missed the signs.
+Revenge keeps you tied to the person who hurt you. Distance sets you free.
+Forgive them for your peace, but never give them the same access again.
+A betrayal is expensive, but the lesson is priceless if you learn it.
+Do not announce your pain. Let your silence and your progress do the talking.
+People who betray you once will betray you again if the price is right.
+Never become cold to everyone because one person was cruel to you.
+Rebuild quietly. The best response to betrayal is a better version of you.
+Thank them in your heart. They showed you exactly who not to be.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 27 — Rules for Your Twenties
+SCRIPT:
+Your twenties are for building, not for showing off.
+Learn a skill that pays before you learn to spend like you are rich.
+Read more than you scroll. Your future is hiding in pages, not feeds.
+Choose friends who talk about plans, not about people.
+Save something from every paycheck, even if it is small.
+Take care of your body now. It is the only house you will live in.
+Make mistakes early, while they are still cheap.
+Do not marry your first comfort. Marry your best decision.
+Stop waiting for permission. Nobody is coming to start your life for you.
+The man you become at forty is built by the habits you choose at twenty.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 28 — Signs Someone Secretly Dislikes You
+SCRIPT:
+They never ask about your life, but they always know the bad news first.
+Their compliments come with a small insult hidden inside.
+They go quiet when you share good news and loud when you share problems.
+They remember your mistakes better than you do.
+They joke about you in public and call it just teasing.
+They copy your ideas but never give you credit.
+Their smile disappears the moment they think you looked away.
+They are always busy when you need them, but free when they need you.
+They praise others in front of you to make you feel smaller.
+Pay attention to how people react to your success. That is the real answer.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 29 — The Power of Patience
+SCRIPT:
+Patience is not waiting. It is staying calm while the work is still growing.
+The man who rushes pays twice. Once in money, and once in regret.
+Bamboo grows roots for years before anyone sees it rise.
+Quick results feel good. Slow results last.
+Never react to an offer the same day. Good deals survive a night of thinking.
+Impatient people make loud decisions. Patient people make lasting ones.
+Let people show you who they are. Time reveals everything for free.
+A patient man can outlast a talented one.
+Your timeline is not late. You are just comparing it to someone else's story.
+Plant seeds today. Patience is how you get to eat the fruit.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 30 — The Rules of Reputation
+SCRIPT:
+Your reputation enters every room before you do.
+It takes years to build a name and one careless night to lose it.
+Never do in private what would destroy you in public.
+Pay your debts on time. People remember who made them chase their money.
+Keep your word small and keep it every time.
+Do not gossip. The listener is learning you cannot be trusted.
+Your online life is your permanent record. Post like it.
+Protect your name the way you protect your money.
+Let your work speak so loudly that rumors sound ridiculous.
+In the end, your name is the only thing you truly own. Guard it.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 31 — How to Win an Argument Without Fighting
+SCRIPT:
+The goal of an argument is to find the truth, not to conquer the room.
+Lower your voice when theirs gets louder. Calm takes control.
+Ask questions instead of making accusations. Let them hear their own logic.
+Repeat their point back before you answer. People relax when they feel heard.
+Never argue with someone who is only trying to perform.
+Attack the problem, never the person.
+Admit when they are right. It makes your next point stronger.
+Know when to stop. A point made once is stronger than a point made ten times.
+Silence is a valid answer to a foolish question.
+Sometimes the strongest move is to walk away and let time prove you right.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 32 — The Rules of Ambition
+SCRIPT:
+Ambition without discipline is just a loud wish.
+Want it badly enough to be bored by the work it takes.
+Never shrink your goals to fit the opinions of comfortable people.
+Keep your dreams big and your next step small.
+Hungry men notice opportunities that full men walk right past.
+Measure yourself against who you were last year, not against strangers online.
+Success needs sacrifice. Decide in advance what you are willing to give up.
+Surround yourself with people whose normal is your goal.
+Ambition will cost you some friends. The right ones will understand.
+Stay hungry, stay humble, and never stop building.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 33 — The Rules of Pressure
+SCRIPT:
+Pressure does not build character. It reveals it.
+When everyone panics, the calm man becomes the leader.
+Breathe slowly before you speak. A steady breath creates a steady voice.
+Break big problems into small tasks. Pressure shrinks when you start moving.
+Do not make permanent decisions in temporary storms.
+Train under stress so that real stress feels familiar.
+Focus on what you control. Ignore what you cannot change.
+Pressure is a privilege. Nobody pressures the man who has nothing to lose.
+Diamonds and strong men are made the same way: under heavy weight.
+The storm will pass. Make sure you are still standing when it does.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 34 — The Psychology of Power
+SCRIPT:
+Power is not taken by force. It is given by people who believe in you.
+The person who needs the deal less always holds the power.
+Never show all your cards. Mystery creates influence.
+Those who control their emotions control the outcome.
+Power whispers. Weakness shouts.
+Make people want to follow you, not fear to leave you.
+Real power is having options. Build as many as you can.
+The more you complain, the less power people believe you have.
+Give credit freely. Powerful people do not need to steal it.
+True power is the ability to walk away from anything that does not serve you.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 35 — Love and Self-Respect
+SCRIPT:
+Never love someone so much that you forget to respect yourself.
+Love should feel like peace, not like a constant test.
+If you have to beg for attention, you are already in the wrong place.
+The right person will never make you choose between them and your dignity.
+Actions are the only love letters worth reading.
+Do not stay because of the past. Stay because of who they are today.
+Jealousy is not proof of love. Trust is.
+Never chase someone who is comfortable watching you leave.
+A relationship should make you better, not smaller.
+Respect yourself enough to walk away from anything that keeps hurting you.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 36 — Lessons From Failure
+SCRIPT:
+Failure is not the opposite of success. It is part of the road.
+Every expert you admire has failed more times than you have tried.
+Fall, learn, adjust, and try again. That is the whole secret.
+Do not hide your failures. Study them.
+A failed plan is information, not a final verdict.
+People will laugh when you fall. They will be quiet when you rise.
+The only real failure is the day you stop trying.
+Pain teaches lessons that comfort never will.
+Failing in public takes courage. Most critics never even started.
+Keep going. Your comeback story is still being written.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 37 — The Rules of Focus
+SCRIPT:
+Where your attention goes, your life follows.
+A man chasing two rabbits catches none.
+Your phone is designed to steal your focus. Take it back.
+Say no to good ideas so you can say yes to great ones.
+Deep work in silence beats busy work in noise.
+Protect the first hour of your day. That is when your mind is sharpest.
+Finish what you start before you start something new.
+Distraction is the most expensive habit you will never see on a bill.
+Focus is a muscle. Train it a little every day.
+Master one thing at a time, and one day you will master many.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 38 — How to Be Unforgettable
+SCRIPT:
+Unforgettable people make others feel seen.
+Listen like the person in front of you is the only one in the world.
+Remember small details. People never forget who remembered them.
+Keep your word. Reliability is rare enough to be remembered.
+Be kind when there is nothing to gain from it.
+Have a standard, and never lower it to fit in.
+Tell the truth, even when a lie would be easier.
+Bring calm into rooms full of chaos.
+Help people quietly. The ones who matter will notice.
+People forget faces and names. They never forget how you made them feel.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 39 — Habits of a Disciplined Man
+SCRIPT:
+He wakes up early, not because he must, but because he has a mission.
+He moves his body every day, even when he does not feel like it.
+He reads to grow, not to look smart.
+He spends less than he earns, and he never explains it to anyone.
+He keeps a small circle and a big vision.
+He plans tomorrow before he goes to sleep tonight.
+He controls his screen time instead of letting the screen control him.
+He keeps his word, especially the promises he makes to himself.
+He does not complain. He makes a plan.
+He knows that discipline today is freedom tomorrow.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
+
+## VIDEO 40 — The Rules of the Strategic Mind
+SCRIPT:
+Think three moves ahead while others are still reacting to the first one.
+Never reveal your full plan. Share only what each person needs to know.
+Study people before you trust them. Patterns never lie.
+Choose your battles. Not every fight deserves your energy.
+Prepare in silence so you can act with confidence.
+Turn your weaknesses into lessons and your lessons into advantages.
+Always have a second plan before you start the first one.
+Let people underestimate you. It is the cheapest advantage you will ever get.
+Take your time, but make every victory permanent.
+The strategic mind does not rush. It waits, it watches, then it moves.
+There are deeper rules than these, and they are not taught for free. Follow this page. One rule every day.
