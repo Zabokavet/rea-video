@@ -1,6 +1,6 @@
 {
  "common": "first-person POV photo, photorealistic, 35mm film, shallow depth of field",
- "neg": "selfie, mirror, extra fingers, fused fingers, deformed hands, mutated hands, extra hands, missing fingers, text, letters, watermark, logo, brand, cartoon, illustration, 3d render, painting, blurry, lowres, distorted face, deformed face, cross-eyed, wristwatch, watch, bracelet, jewelry, ring, many hands",
+ "neg": "selfie, mirror, extra fingers, fused fingers, deformed hands, mutated hands, extra hands, missing fingers, text, letters, watermark, logo, brand, cartoon, illustration, 3d render, painting, blurry, lowres, distorted face, deformed face, cross-eyed, wristwatch, watch, bracelet, jewelry, ring, many hands, torso, chest, beard, chin, body, person sitting, third person view",
  "shots": [
   {
    "id": "s1",
@@ -13,14 +13,14 @@
    "prompt": "POV seated at a restaurant dinner table at night looking across at four friends laughing and talking loudly to each other, ignoring me, warm amber candle light, wine glasses, pasta plates, empty plate and white tablecloth in foreground, natural faces"
   },
   {
-   "id": "s2",
+   "id": "s2b",
    "seeds": [
-    201,
-    202,
-    203,
-    204
+    211,
+    212,
+    213,
+    214
    ],
-   "prompt": "POV looking down, close up of my man's right hand, bare wrist, rolled blue denim shirt sleeve resting flat, relaxed and still on a white tablecloth beside a dinner plate, warm amber candle light, cozy restaurant at night, blurred background, natural five fingers"
+   "prompt": "first-person view from my own eyes looking down, my right forearm and hand entering from the bottom edge of the frame, resting flat and still on a white tablecloth beside a plate, rolled blue denim sleeve, bare wrist, warm candle light, restaurant at night"
   },
   {
    "id": "s3",
@@ -33,14 +33,14 @@
    "prompt": "POV looking down at a black smartphone lying face up on a dark walnut wooden table, screen glowing softly, my man's right hand, bare wrist, rolled blue denim shirt sleeve resting near it, cool blue dusk window light, quiet home, natural five fingers"
   },
   {
-   "id": "s4",
+   "id": "s4b",
    "seeds": [
-    401,
-    402,
-    403,
-    404
+    411,
+    412,
+    413,
+    414
    ],
-   "prompt": "POV looking down at a black smartphone lying face down on a dark walnut wooden table, my man's right hand, bare wrist, rolled blue denim shirt sleeve resting flat and still on top of the phone, cool blue dusk window light, quiet home, minimalist, natural five fingers"
+   "prompt": "first-person top-down view, my hand entering from the bottom edge of the frame, palm resting flat on the back of a black smartphone lying face down with camera lenses visible, dark walnut table, rolled blue denim sleeve, bare wrist, cool blue dusk light"
   },
   {
    "id": "s5",
