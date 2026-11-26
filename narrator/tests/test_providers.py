@@ -31,7 +31,8 @@ def test_openai_requests_pcm_and_retries_rate_limits(tmp_path, transport):
     assert (out.kind, out.sample_rate) == ("pcm", 24000)
     assert len(calls) == 2  # retried after the provider's 429
     body = json.loads(calls[-1].content)
-    assert body == {"model": "gpt-4o-mini-tts", "voice": "nova", "input": "Hello.", "response_format": "pcm"}
+    assert body["input"] == "Hello." and body["response_format"] == "pcm" and body["voice"] == "nova"
+    assert "Haitian Creole" in body["instructions"]  # Creole by default
     assert calls[-1].headers["authorization"] == "Bearer sk-test"
 
 

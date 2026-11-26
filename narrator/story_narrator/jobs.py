@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from . import audio
 from .chunking import split_text
 from .config import Settings
+from .kreyol import expand_numbers
 from .library import Library, now
 from .providers import Audio, ProviderError, VoiceProvider
 
@@ -42,7 +43,10 @@ class JobRunner:
         if provider is None:
             raise ProviderError(f"Voice provider '{rec['provider']}' is not configured (missing API key).")
 
-        chunks = split_text(rec["text"], provider.chunk_chars)
+        text = rec["text"]
+        if rec["language"] == "ht":
+            text = expand_numbers(text)  # "25 goud" -> "vennsenk goud", read in Kreyòl by every voice
+        chunks = split_text(text, provider.chunk_chars)
         if not chunks:
             raise ValueError("The story text is empty.")
         self.library.update(nid, status="generating", chunks_total=len(chunks), chunks_done=0, error=None)
@@ -83,15 +87,17 @@ class JobRunner:
 
     @staticmethod
     def _synthesize(provider: VoiceProvider, text: str, rec: dict, lossless: bool) -> Audio:
+        args = (text, rec["voice"], rec["model"])
+        lang = rec["language"]
         if not lossless:
-            return provider.synthesize(text, rec["voice"], rec["model"], lossless=False)
+            return provider.synthesize(*args, lossless=False, language=lang)
         try:
-            return provider.synthesize(text, rec["voice"], rec["model"], lossless=True)
+            return provider.synthesize(*args, lossless=True, language=lang)
         except ProviderError as e:
             if e.status not in _FORMAT_REFUSALS:
                 raise
             # The plan may not include PCM. Try MP3; if that fails too, the original error stands.
             try:
-                return provider.synthesize(text, rec["voice"], rec["model"], lossless=False)
+                return provider.synthesize(*args, lossless=False, language=lang)
             except ProviderError:
                 raise e from None

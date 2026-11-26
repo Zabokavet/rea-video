@@ -1,51 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="ht">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Story Narrator</title>
+<title>Rakontè Istwa</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <h1>Story Narrator</h1>
-  <p class="sub">Paste a story, pick an AI voice, then listen and download. No recording needed: the AI voice provider reads every narration.</p>
+  <div class="top-row">
+    <h1 data-i18n="appTitle">Rakontè Istwa</h1>
+    <div class="ui-lang" role="group" aria-label="Lang entèfas / Interface language">
+      <button type="button" data-ui-lang="ht">Kreyòl</button>
+      <button type="button" data-ui-lang="en">English</button>
+    </div>
+  </div>
+  <p class="sub" data-i18n="subtitle"></p>
 </header>
 
 <main>
   <div id="banner" class="banner" hidden></div>
 
   <section class="card" aria-labelledby="gen-h">
-    <h2 id="gen-h">New narration</h2>
+    <h2 id="gen-h" data-i18n="newNarration"></h2>
     <form id="gen-form">
-      <label>Story title
-        <input id="title" required placeholder="The Lighthouse Keeper" autocomplete="off">
+      <label><span data-i18n="storyTitle"></span>
+        <input id="title" required autocomplete="off" data-i18n-placeholder="titlePlaceholder">
       </label>
-      <label>Story text
-        <textarea id="text" required rows="10" placeholder="Once upon a time…"></textarea>
+      <label><span data-i18n="storyText"></span>
+        <textarea id="text" required rows="10" data-i18n-placeholder="textPlaceholder"></textarea>
       </label>
-      <p class="hint" id="text-meta">0 characters</p>
+      <p class="hint" id="text-meta"></p>
       <div class="row">
-        <label>Voice provider <select id="provider"></select></label>
-        <label>Voice
-          <input id="voice" list="voice-list" required autocomplete="off" placeholder="Choose or paste a voice ID">
+        <label><span data-i18n="language"></span> <select id="language"></select></label>
+        <label><span data-i18n="provider"></span> <select id="provider"></select></label>
+      </div>
+      <p class="hint" id="provider-note"></p>
+      <div class="row">
+        <label><span data-i18n="voice"></span>
+          <input id="voice" list="voice-list" required autocomplete="off">
           <datalist id="voice-list"></datalist>
         </label>
-        <label>Model <select id="model"></select></label>
+        <label><span data-i18n="model"></span> <select id="model"></select></label>
       </div>
-      <button class="primary" id="gen-btn" type="submit">Generate narration</button>
+      <button class="primary" id="gen-btn" type="submit" data-i18n="generate"></button>
     </form>
 
     <div id="job" class="job" hidden aria-live="polite">
       <div class="job-head"><strong id="job-title"></strong><span id="job-status"></span></div>
       <progress id="job-progress" max="1" value="0"></progress>
       <div id="job-result" class="result" hidden>
-        <p class="ok">Narration ready <span id="job-duration"></span></p>
+        <p class="ok"><span data-i18n="ready"></span> <span id="job-duration"></span></p>
         <div class="actions">
-          <button type="button" id="job-preview">▶ Preview</button>
-          <a class="button primary" id="job-mp3" download>⬇ Download Audio (MP3)</a>
-          <a class="button" id="job-wav" download>⬇ Download WAV</a>
-          <span class="hint" id="job-wav-note" hidden>WAV isn’t available from this provider or plan</span>
+          <button type="button" id="job-preview" data-i18n="preview"></button>
+          <a class="button primary" id="job-mp3" download data-i18n="downloadMp3"></a>
+          <a class="button" id="job-wav" download data-i18n="downloadWav"></a>
+          <span class="hint" id="job-wav-note" hidden data-i18n="wavUnavailable"></span>
         </div>
       </div>
       <div id="job-error" class="error" hidden></div>
@@ -54,25 +64,25 @@
 
   <section class="card" aria-labelledby="lib-h">
     <div class="lib-head">
-      <h2 id="lib-h">Audio library</h2>
-      <input id="search" type="search" placeholder="Search titles and text" aria-label="Search the library">
+      <h2 id="lib-h" data-i18n="library"></h2>
+      <input id="search" type="search" data-i18n-placeholder="search" data-i18n-aria="search">
     </div>
     <ul id="library" class="library"></ul>
-    <p id="library-empty" class="hint" hidden>Your generated narrations will appear here.</p>
+    <p id="library-empty" class="hint" hidden data-i18n="libraryEmpty"></p>
   </section>
 </main>
 
-<section id="player" class="player" hidden aria-label="Audio player">
+<section id="player" class="player" hidden data-i18n-aria="player">
   <audio id="audio" preload="metadata"></audio>
-  <div class="player-title"><span class="hint">Now playing</span> <strong id="np-title"></strong></div>
+  <div class="player-title"><span class="hint" data-i18n="nowPlaying"></span> <strong id="np-title"></strong></div>
   <div class="player-controls">
-    <button type="button" id="p-replay" title="Replay from the start" aria-label="Replay from the start">⟲</button>
-    <button type="button" id="p-back" title="Back 10 seconds" aria-label="Back 10 seconds">−10s</button>
-    <button type="button" id="p-toggle" class="primary">Play</button>
-    <button type="button" id="p-fwd" title="Forward 10 seconds" aria-label="Forward 10 seconds">+10s</button>
+    <button type="button" id="p-replay" data-i18n-title="replay" data-i18n-aria="replay">⟲</button>
+    <button type="button" id="p-back" data-i18n-title="back10" data-i18n-aria="back10">−10s</button>
+    <button type="button" id="p-toggle" class="primary"></button>
+    <button type="button" id="p-fwd" data-i18n-title="fwd10" data-i18n-aria="fwd10">+10s</button>
     <span class="time" id="p-time">0:00 / 0:00</span>
-    <input type="range" id="p-seek" min="0" max="0" step="0.1" value="0" aria-label="Seek">
-    <label class="speed">Speed
+    <input type="range" id="p-seek" min="0" max="0" step="0.1" value="0" data-i18n-aria="seek">
+    <label class="speed"><span data-i18n="speed"></span>
       <select id="p-speed">
         <option value="0.5">0.5×</option><option value="0.75">0.75×</option>
         <option value="1" selected>1×</option><option value="1.25">1.25×</option>
@@ -94,11 +104,11 @@
       <p class="error item-error" hidden></p>
     </div>
     <div class="actions">
-      <button type="button" class="item-play">▶ Play</button>
+      <button type="button" class="item-play"></button>
       <a class="button primary item-mp3" download>⬇ MP3</a>
       <a class="button item-wav" download>⬇ WAV</a>
-      <button type="button" class="item-retry" hidden>Retry</button>
-      <button type="button" class="item-delete danger">Delete</button>
+      <button type="button" class="item-retry" hidden></button>
+      <button type="button" class="item-delete danger"></button>
     </div>
   </li>
 </template>

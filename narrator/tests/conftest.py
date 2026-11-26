@@ -28,14 +28,16 @@ def pcm_to_mp3(pcm: bytes) -> bytes:
 
 class FakeProvider(VoiceProvider):
     def __init__(self, chunk_chars=100, pcm=True, fail=None):
-        super().__init__(name="fake", label="Fake", chunk_chars=chunk_chars, models=["m1"], default_model="m1")
+        super().__init__(name="fake", label="Fake", chunk_chars=chunk_chars, models=["m1"], default_model="m1",
+                         languages={"ht": "native", "fr": "prompted"})
         self.pcm, self.fail, self.calls = pcm, fail, []
 
     def voices(self):
         return [{"id": "v1", "name": "Voice One"}]
 
-    def synthesize(self, text, voice, model, lossless):
+    def synthesize(self, text, voice, model, lossless, language="ht"):
         self.calls.append((text, lossless))
+        self.languages_used = getattr(self, "languages_used", []) + [language]
         if self.fail:
             raise ProviderError(self.fail, 401)
         if lossless and not self.pcm:

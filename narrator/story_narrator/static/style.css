@@ -53,3 +53,8 @@ progress { width: 100%; height: 8px; margin: 8px 0; accent-color: var(--accent);
 .speed { flex-direction: row; align-items: center; margin: 0; flex: 0 0 auto; }
 .speed select { width: auto; padding: 5px 6px; }
 #p-toggle { min-width: 84px; justify-content: center; }
+.top-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ui-lang { display: flex; gap: 4px; margin-top: 28px; }
+.ui-lang button { padding: 4px 10px; font-size: .85rem; }
+.ui-lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.badge { display: inline-block; font-size: .75rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); margin-left: 4px; }

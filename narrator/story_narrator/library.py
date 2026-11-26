@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS narrations (
     provider TEXT NOT NULL,
     voice TEXT NOT NULL,
     model TEXT NOT NULL,
+    language TEXT NOT NULL DEFAULT 'ht',
     status TEXT NOT NULL,          -- queued | generating | ready | failed
     error TEXT,
     chunks_total INTEGER NOT NULL DEFAULT 0,
@@ -29,7 +30,7 @@ CREATE TABLE IF NOT EXISTS narrations (
 );
 """
 
-_PUBLIC = ("id", "title", "provider", "voice", "model", "status", "error", "chunks_total",
+_PUBLIC = ("id", "title", "provider", "voice", "model", "language", "status", "error", "chunks_total",
            "chunks_done", "has_mp3", "has_wav", "sample_rate", "duration", "created_at", "finished_at")
 
 
@@ -46,6 +47,9 @@ class Library:
         self._db = sqlite3.connect(self.root / "library.sqlite3", check_same_thread=False)
         self._db.row_factory = sqlite3.Row
         self._db.executescript(_SCHEMA)
+        cols = {r["name"] for r in self._db.execute("PRAGMA table_info(narrations)")}
+        if "language" not in cols:  # libraries created before languages existed were Kreyòl-first too
+            self._db.execute("ALTER TABLE narrations ADD COLUMN language TEXT NOT NULL DEFAULT 'ht'")
         # Jobs interrupted by a restart can't resume mid-stream; let the user retry them.
         self._db.execute("UPDATE narrations SET status='failed', error='Interrupted by a server restart. "
                          "Use Retry to generate it again.' WHERE status IN ('queued','generating')")
@@ -57,12 +61,12 @@ class Library:
     def file_for(self, nid: str, ext: str) -> Path:
         return self.dir_for(nid) / f"narration.{ext}"
 
-    def create(self, title: str, text: str, provider: str, voice: str, model: str) -> dict:
+    def create(self, title: str, text: str, provider: str, voice: str, model: str, language: str = "ht") -> dict:
         nid = uuid.uuid4().hex
         with self._lock:
             self._db.execute(
-                "INSERT INTO narrations (id,title,text,provider,voice,model,status,created_at) "
-                "VALUES (?,?,?,?,?,?,'queued',?)", (nid, title, text, provider, voice, model, now()))
+                "INSERT INTO narrations (id,title,text,provider,voice,model,language,status,created_at) "
+                "VALUES (?,?,?,?,?,?,?,'queued',?)", (nid, title, text, provider, voice, model, language, now()))
             self._db.commit()
         return self.get(nid)
 

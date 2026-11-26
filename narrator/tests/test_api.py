@@ -80,6 +80,33 @@ def test_library_lists_searches_retries_and_deletes(make_client):
         assert len(c.get("/api/narrations").json()["narrations"]) == 1
 
 
+def test_creole_is_the_default_and_numbers_are_read_in_creole(make_client):
+    provider = FakeProvider(chunk_chars=4000)
+    with make_client(provider) as c:
+        r = c.post("/api/narrations", json={"title": "Twa ti kochon", "provider": "fake", "voice": "v1",
+                                            "text": "Te gen 3 ti kochon ki te gen 25 goud."})
+        rec = wait_done(c, r.json()["id"])
+        assert rec["status"] == "ready" and rec["language"] == "ht"
+        assert provider.calls[0][0] == "Te gen twa ti kochon ki te gen vennsenk goud."
+        assert provider.languages_used == ["ht"]
+        s = c.get("/api/status").json()
+        assert s["default_language"] == "ht" and s["languages"][0]["name"] == "Kreyòl ayisyen"
+        # other languages are allowed, but only with a provider that has a voice for them
+        assert c.post("/api/narrations", json={"title": "x", "text": "y", "provider": "fake", "voice": "v",
+                                               "language": "es"}).status_code == 400
+        fr = wait_done(c, c.post("/api/narrations", json={"title": "Conte", "text": "Il y a 3 chats.",
+                                                          "provider": "fake", "voice": "v", "language": "fr"}).json()["id"])
+        assert fr["language"] == "fr" and provider.calls[-1][0] == "Il y a 3 chats."
+
+
+def test_creole_titles_make_good_filenames(make_client):
+    with make_client(FakeProvider()) as c:
+        rec = wait_done(c, create(c, title="Bouki ak Ti Malis: lanmè a")["id"])
+        h = c.get(f"/api/narrations/{rec['id']}/audio.mp3?download=1").headers["content-disposition"]
+        assert 'filename="Bouki-ak-Ti-Malis-lanme-a_' in h  # ASCII fallback
+        assert "filename*=UTF-8''Bouki-ak-Ti-Malis-lanm%C3%A8-a_" in h  # keeps the è
+
+
 def test_validation_and_ui(make_client):
     with make_client(FakeProvider()) as c:
         assert c.post("/api/narrations", json={"title": "x", "text": "y", "provider": "nope", "voice": "v"}).status_code == 400
@@ -88,7 +115,9 @@ def test_validation_and_ui(make_client):
         assert s["providers"][0]["id"] == "fake"
         assert c.get("/api/providers/fake/voices").json()["voices"][0]["id"] == "v1"
         page = c.get("/").text
-        assert "Download Audio (MP3)" in page and "Audio library" in page
+        assert 'lang="ht"' in page and "Rakontè Istwa" in page
+        js = c.get("/app.js").text
+        assert "Telechaje odyo a (MP3)" in js and "Download Audio (MP3)" in js and "Bibliyotèk odyo" in js
 
 
 def probe(data: bytes) -> float:

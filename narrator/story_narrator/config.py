@@ -36,6 +36,8 @@ class Settings:
     elevenlabs_mp3_format: str
     elevenlabs_chunk_chars: int
     mp3_vbr_quality: int
+    local_tts: str
+    hf_cache_dir: str
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -55,4 +57,8 @@ class Settings:
             elevenlabs_chunk_chars=int(env("ELEVENLABS_CHUNK_CHARS", "4500")),
             # LAME VBR quality used when encoding MP3 from the lossless master: 0 = best.
             mp3_vbr_quality=int(env("NARRATOR_MP3_QUALITY", "0")),
+            # Native Haitian Creole voice (Meta MMS) running on this computer: auto | on | off.
+            # "auto" turns it on when the optional [kreyol] dependencies are installed.
+            local_tts=env("NARRATOR_LOCAL_TTS", "auto").lower(),
+            hf_cache_dir=env("NARRATOR_MODEL_DIR", ""),
         )

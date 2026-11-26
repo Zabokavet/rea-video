@@ -13,6 +13,7 @@ from . import audio
 from .config import Settings
 from .filenames import content_disposition, download_name
 from .jobs import JobRunner
+from .languages import DEFAULT_LANGUAGE, LANGUAGES
 from .library import Library
 from .providers import ProviderError, VoiceProvider, configured_providers
 
@@ -26,6 +27,7 @@ class NarrationRequest(BaseModel):
     provider: str
     voice: str = Field(min_length=1)
     model: str = ""
+    language: str = DEFAULT_LANGUAGE  # Haitian Creole unless another language is chosen
 
 
 def create_app(settings: Settings | None = None,
@@ -53,8 +55,12 @@ def create_app(settings: Settings | None = None,
     def status():
         return {
             "ffmpeg": audio.ffmpeg_available(),
-            "providers": [{"id": p.name, "label": p.label, "models": p.models,
-                           "default_model": p.default_model, "chunk_chars": p.chunk_chars}
+            "default_language": DEFAULT_LANGUAGE,
+            "languages": [{"code": c, "name": v["name"], "english": v["english"]} for c, v in LANGUAGES.items()],
+            # Providers with a native voice for a language are listed first for it in the UI.
+            "providers": [{"id": p.name, "label": p.label, "models": p.models, "note": p.note,
+                           "default_model": p.default_model, "chunk_chars": p.chunk_chars,
+                           "languages": p.languages}
                           for p in providers.values()],
         }
 
@@ -73,10 +79,14 @@ def create_app(settings: Settings | None = None,
         p = providers.get(req.provider)
         if p is None:
             raise HTTPException(400, f"Voice provider '{req.provider}' is not configured.")
+        if req.language not in LANGUAGES:
+            raise HTTPException(400, f"Unknown language '{req.language}'.")
+        if req.language not in p.languages:
+            raise HTTPException(400, f"{p.label} has no voice for {LANGUAGES[req.language]['english']}.")
         if not audio.ffmpeg_available():
             raise HTTPException(503, "ffmpeg is not installed on the server; it is needed to export MP3.")
         rec = library.create(req.title.strip(), req.text, p.name, req.voice.strip(),
-                             req.model.strip() or p.default_model)
+                             req.model.strip() or p.default_model, req.language)
         runner.submit(rec["id"])
         return rec
 

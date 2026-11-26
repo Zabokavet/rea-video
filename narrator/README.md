@@ -1,8 +1,22 @@
-# Story Narrator
+# Story Narrator · Rakontè Istwa
 
-Turn a written story into an AI-narrated audio file. Listen to it in the browser, download it as MP3 or WAV, and find every past narration in the audio library.
+Turn a written story into an AI-narrated audio file, **in Haitian Creole (Kreyòl ayisyen) first**. Listen to it in the browser, download it as MP3 or WAV, and find every past narration in the audio library.
 
-You don't record anything: every narration is synthesized by the AI voice provider you connect (OpenAI TTS or ElevenLabs).
+You don't record anything: every narration is synthesized by an AI voice.
+
+## Haitian Creole first
+
+- **Kreyòl ayisyen is the default narration language,** and the interface opens in Kreyòl, with an English switch in the corner. French, English and Spanish are also available.
+- **Native Creole voice:** Meta's MMS-TTS model [`facebook/mms-tts-hat`](https://huggingface.co/facebook/mms-tts-hat) was trained on Haitian Creole speech. It runs on your own computer (CPU is enough: about 2 s to make 10 s of speech), so it's **free and unlimited**. It is listed first for Creole and marked *vwa natif*.
+  - The model downloads once, about 145 MB.
+  - It has one voice per language.
+  - Its licence is **CC-BY-NC-4.0**: fine for personal use, **not for commercial use**.
+- **Numbers are read in Kreyòl.** `3 ti kochon ak 25 goud` is read as *twa ti kochon ak vennsenk goud*. Percentages, decimals and years also work, e.g. `1804` → *mil uit san kat*.
+- **Natural pauses:** the model ignores punctuation, so the app voices the text one sentence and clause at a time, with short pauses in between.
+- **Spelling:** Kreyòl letters *à è ò* are kept. French-style letters the voice can't read are mapped to the Creole sound (é→e, ç→s).
+- **OpenAI and ElevenLabs** also work for Creole, but neither confirms Haitian Creole support, so they're marked *kreyòl pa garanti* (Creole not guaranteed). OpenAI's `gpt-4o-mini-tts` is told to speak with a native Haitian accent. Listen before you share.
+
+> The Kreyòl interface text and the number words were written without review by a native speaker. Please have a Creole speaker check them; they're all in `story_narrator/static/app.js` (`STRINGS.ht`) and `story_narrator/kreyol.py`.
 
 > This app is self-contained and separate from rea-video. It lives in this folder for now; you can move it to its own repository unchanged.
 
@@ -25,10 +39,12 @@ Needs Python 3.10+ and ffmpeg (`brew install ffmpeg` / `sudo apt install ffmpeg`
 ```bash
 cd narrator
 python3 -m venv .venv && . .venv/bin/activate
-pip install -e .
-cp .env.example .env        # add OPENAI_API_KEY and/or ELEVENLABS_API_KEY
+pip install torch --index-url https://download.pytorch.org/whl/cpu   # small CPU-only build
+pip install -e '.[kreyol]'  # app + the native Haitian Creole voice
 story-narrator              # http://127.0.0.1:8000
 ```
+
+The native Creole voice needs no API key. To also use OpenAI or ElevenLabs, `cp .env.example .env` and add a key.
 
 Options: `story-narrator --env-file path/to/.env --host 0.0.0.0 --port 8000`. All settings are listed in [`.env.example`](.env.example).
 
@@ -45,9 +61,9 @@ There is no login. The app is meant for personal use on your own machine. Don't 
 
 | Method | Path | |
 |---|---|---|
-| GET | `/api/status` | configured providers, ffmpeg check |
+| GET | `/api/status` | languages, configured providers (and which languages each speaks natively), ffmpeg check |
 | GET | `/api/providers/{id}/voices` | voices for a provider |
-| POST | `/api/narrations` | `{title, text, provider, voice, model?}` → starts a job (202) |
+| POST | `/api/narrations` | `{title, text, provider, voice, model?, language?}` → starts a job (202). `language` defaults to `ht` |
 | GET | `/api/narrations?q=` | the library |
 | GET | `/api/narrations/{id}` | status and progress (`chunks_done` / `chunks_total`) |
 | POST | `/api/narrations/{id}/retry` | regenerate a failed narration |
@@ -60,4 +76,4 @@ There is no login. The app is meant for personal use on your own machine. Don't 
 pip install -e '.[dev]' && python -m pytest -q
 ```
 
-The tests use a fake voice provider and a mocked HTTP transport, so they need no API keys and make no network calls.
+The tests use a fake voice provider and a mocked HTTP transport, so they need no API keys. One test makes real Creole speech with the MMS voice; it runs when the `[kreyol]` extras are installed (it downloads the model once) and is skipped otherwise.

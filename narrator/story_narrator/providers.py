@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 import httpx
 
 from .config import Settings
+from .languages import LANGUAGES, language as lang_info
 
 
 class ProviderError(RuntimeError):
@@ -35,11 +36,15 @@ class VoiceProvider:
     chunk_chars: int = 4000
     models: list[str] = field(default_factory=list)
     default_model: str = ""
+    # language code -> "native" (a voice trained on that language) or "prompted" (a
+    # multilingual voice that reads the text; accent and accuracy are not guaranteed)
+    languages: dict[str, str] = field(default_factory=dict)
+    note: str = ""
 
     def voices(self) -> list[dict]:
         raise NotImplementedError
 
-    def synthesize(self, text: str, voice: str, model: str, lossless: bool) -> Audio:
+    def synthesize(self, text: str, voice: str, model: str, lossless: bool, language: str = "ht") -> Audio:
         raise NotImplementedError
 
 
@@ -97,19 +102,21 @@ class OpenAIProvider(VoiceProvider):
     def __init__(self, s: Settings):
         super().__init__(name="openai", label="OpenAI TTS", chunk_chars=4000,
                          models=list(dict.fromkeys([s.openai_model, "gpt-4o-mini-tts", "tts-1-hd", "tts-1"])),
-                         default_model=s.openai_model)
+                         default_model=s.openai_model, languages={c: "prompted" for c in LANGUAGES})
         self._key, self._base = s.openai_api_key, s.openai_base_url
 
     def voices(self) -> list[dict]:
         return [{"id": v, "name": v.capitalize()} for v in self.VOICES]
 
-    def synthesize(self, text, voice, model, lossless):
+    def synthesize(self, text, voice, model, lossless, language="ht"):
         fmt = "pcm" if lossless else "mp3"  # OpenAI pcm = 24 kHz, 16-bit, mono, little-endian
+        model = model or self.default_model
+        body = {"model": model, "voice": voice, "input": text, "response_format": fmt}
+        if model.startswith("gpt-"):  # tts-1 models don't take instructions
+            body["instructions"] = lang_info(language)["instructions"]
         with _client() as c:
             r = _post_with_retry(c, f"{self._base}/audio/speech",
-                                 headers={"Authorization": f"Bearer {self._key}"},
-                                 json={"model": model or self.default_model, "voice": voice,
-                                       "input": text, "response_format": fmt})
+                                 headers={"Authorization": f"Bearer {self._key}"}, json=body)
         return Audio(r.content, fmt, 24000 if lossless else 0)
 
 
@@ -120,7 +127,7 @@ class ElevenLabsProvider(VoiceProvider):
         super().__init__(name="elevenlabs", label="ElevenLabs", chunk_chars=s.elevenlabs_chunk_chars,
                          models=list(dict.fromkeys([s.elevenlabs_model, "eleven_multilingual_v2",
                                                     "eleven_turbo_v2_5", "eleven_flash_v2_5"])),
-                         default_model=s.elevenlabs_model)
+                         default_model=s.elevenlabs_model, languages={c: "prompted" for c in LANGUAGES})
         self._key = s.elevenlabs_api_key
         self._pcm, self._mp3 = s.elevenlabs_pcm_format, s.elevenlabs_mp3_format
         self._voice_cache: tuple[float, list[dict]] | None = None
@@ -136,7 +143,7 @@ class ElevenLabsProvider(VoiceProvider):
         self._voice_cache = (time.time(), voices)
         return voices
 
-    def synthesize(self, text, voice, model, lossless):
+    def synthesize(self, text, voice, model, lossless, language="ht"):
         fmt = self._pcm if lossless else self._mp3
         with _client() as c:
             r = _post_with_retry(c, f"{self.BASE}/text-to-speech/{voice}", params={"output_format": fmt},
@@ -149,6 +156,9 @@ class ElevenLabsProvider(VoiceProvider):
 
 def configured_providers(s: Settings) -> dict[str, VoiceProvider]:
     out: dict[str, VoiceProvider] = {}
+    from .local_mms import MMSProvider, mms_installed
+    if s.local_tts == "on" or (s.local_tts == "auto" and mms_installed()):
+        out["mms"] = MMSProvider(s)
     if s.openai_api_key:
         out["openai"] = OpenAIProvider(s)
     if s.elevenlabs_api_key:
