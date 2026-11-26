@@ -1,0 +1,86 @@
+{
+ "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "shots": [
+  {
+   "id": "s01",
+   "seeds": [
+    20001,
+    20002
+   ],
+   "prompt": "top-down view of a crowded city crosswalk at golden hour, many people walking, long shadows, motion blur"
+  },
+  {
+   "id": "s02",
+   "seeds": [
+    20011,
+    20012
+   ],
+   "prompt": "an empty train platform at dusk, a train leaving with motion blur, warm and cool light"
+  },
+  {
+   "id": "s03",
+   "seeds": [
+    20021,
+    20022
+   ],
+   "prompt": "silhouettes of friends laughing together on a beach at sunset, backlit golden light"
+  },
+  {
+   "id": "s04",
+   "seeds": [
+    20031,
+    20032
+   ],
+   "prompt": "shattered glass on a dark wooden floor catching a beam of warm light, dramatic"
+  },
+  {
+   "id": "s05",
+   "seeds": [
+    20041,
+    20042
+   ],
+   "prompt": "a worn leather photo album lying closed on a wooden table by a window, soft afternoon light, nostalgic"
+  },
+  {
+   "id": "s06",
+   "seeds": [
+    20051,
+    20052
+   ],
+   "prompt": "a man sitting on a grassy hill at sunrise looking at a misty valley, seen from behind, golden light"
+  },
+  {
+   "id": "s07",
+   "seeds": [
+    20061,
+    20062
+   ],
+   "prompt": "an open wooden door with warm sunlight pouring into a dark room"
+  },
+  {
+   "id": "s08",
+   "seeds": [
+    20071,
+    20072
+   ],
+   "prompt": "close up of two hands cupping a small glowing candle flame in the dark, warm light"
+  },
+  {
+   "id": "s09",
+   "seeds": [
+    20081,
+    20082
+   ],
+   "prompt": "a stack of old books on a windowsill with golden sunlight and floating dust"
+  },
+  {
+   "id": "s10",
+   "seeds": [
+    20091,
+    20092
+   ],
+   "prompt": "a glowing paper lantern floating up into a purple twilight sky over a lake"
+  }
+ ]
+}

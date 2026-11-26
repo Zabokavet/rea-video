@@ -1,0 +1,96 @@
+{
+ "out": "THE_SILENT_CODE_The_Calmest_One_Is_Already_Leaving.mp4",
+ "accent": "#5CE1E6",
+ "grade": "eq=contrast=1.08:saturation=0.88:gamma=0.97,colorbalance=rs=-0.05:gs=0.0:bs=0.07:rm=-0.03:bm=0.04:rh=0.02:bh=-0.02",
+ "music": {
+  "root": 49.0,
+  "chords": [
+   [
+    0,
+    7,
+    12,
+    15
+   ],
+   [
+    -4,
+    3,
+    8,
+    12
+   ],
+   [
+    -5,
+    2,
+    7,
+    10
+   ],
+   [
+    0,
+    7,
+    12,
+    15
+   ]
+  ],
+  "gain": 0.07
+ },
+ "particles": "dust",
+ "punch": [
+  "leaving",
+  "counted",
+  "decision",
+  "goodbye"
+ ],
+ "shots": [
+  {
+   "img": "kf/s01_10001.png",
+   "move": "dolly_in",
+   "until": "room"
+  },
+  {
+   "img": "kf/s02_10011.png",
+   "move": "pan_left",
+   "until": "leaving"
+  },
+  {
+   "img": "kf/s03_10021.png",
+   "move": "dolly_in",
+   "until": "why",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/s04_10031.png",
+   "move": "dolly_in",
+   "until": "did#1",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s05_10041.png",
+   "move": "rise",
+   "until": "it#2"
+  },
+  {
+   "img": "kf/s06_10051.png",
+   "move": "dolly_in",
+   "until": "counted"
+  },
+  {
+   "img": "kf/s07_10061.png",
+   "move": "dolly_out",
+   "until": "weakness"
+  },
+  {
+   "img": "kf/s08_10071.png",
+   "move": "dolly_in",
+   "until": "made"
+  },
+  {
+   "img": "kf/s09_10081.png",
+   "move": "dolly_in",
+   "until": "peace",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s10_10091.png",
+   "move": "dolly_out"
+  }
+ ]
+}

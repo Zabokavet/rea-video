@@ -1,0 +1,92 @@
+{
+ "out": "THE_SILENT_CODE_One_Day_Their_Voice_Will_Be_A_Memory.mp4",
+ "accent": "#FFD9A0",
+ "grade": "eq=contrast=1.03:saturation=0.92:gamma=1.02,colorbalance=rs=0.07:gs=0.03:bs=-0.05:rm=0.04:bm=-0.03,curves=all='0/0.04 1/0.97'",
+ "music": {
+  "root": 52.0,
+  "chords": [
+   [
+    0,
+    4,
+    7,
+    12
+   ],
+   [
+    -3,
+    0,
+    4,
+    9
+   ],
+   [
+    -7,
+    -3,
+    0,
+    5
+   ],
+   [
+    -5,
+    -1,
+    2,
+    7
+   ]
+  ],
+  "gain": 0.08
+ },
+ "particles": "dust",
+ "punch": [
+  "voice",
+  "late",
+  "again",
+  "today#2",
+  "later"
+ ],
+ "shots": [
+  {
+   "img": "kf/s01_30001.png",
+   "move": "dolly_in",
+   "until": "voice"
+  },
+  {
+   "img": "kf/s02_30011.png",
+   "move": "dolly_in",
+   "until": "late",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/s03_30021.png",
+   "move": "pan_left",
+   "until": "busy",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s04_30031.png",
+   "move": "dolly_in",
+   "until": "times"
+  },
+  {
+   "img": "kf/s05_30041.png",
+   "move": "dolly_in",
+   "until": "now"
+  },
+  {
+   "img": "kf/s06_30051.png",
+   "move": "dolly_out",
+   "until": "again"
+  },
+  {
+   "img": "kf/s07_30061.png",
+   "move": "dolly_in",
+   "until": "tomorrow",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s08_30071.png",
+   "move": "dolly_in",
+   "until": "keep"
+  },
+  {
+   "img": "kf/s09_30081.png",
+   "move": "dolly_out"
+  }
+ ]
+}

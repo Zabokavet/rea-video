@@ -1,0 +1,78 @@
+{
+ "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "shots": [
+  {
+   "id": "s01",
+   "seeds": [
+    40001,
+    40002
+   ],
+   "prompt": "close up of a thumb hovering over a smartphone screen in a dark room, deep red ambient light, tension"
+  },
+  {
+   "id": "s02",
+   "seeds": [
+    40011,
+    40012
+   ],
+   "prompt": "a man sitting with eyes closed in a dark room, rain streaks on the window behind him, side silhouette, calm"
+  },
+  {
+   "id": "s03",
+   "seeds": [
+    40021,
+    40022
+   ],
+   "prompt": "dramatic lightning storm over a city skyline at night, purple and red sky"
+  },
+  {
+   "id": "s04",
+   "seeds": [
+    40031,
+    40032
+   ],
+   "prompt": "a cracked porcelain cup on a dark table, dramatic side light"
+  },
+  {
+   "id": "s05",
+   "seeds": [
+    40041,
+    40042
+   ],
+   "prompt": "the blurred reflection of a man in a rain streaked dark window at night, red and blue city lights"
+  },
+  {
+   "id": "s06",
+   "seeds": [
+    40051,
+    40052
+   ],
+   "prompt": "a perfectly still mountain lake at dawn, mirror reflection, soft mist, cool blue calm"
+  },
+  {
+   "id": "s07",
+   "seeds": [
+    40061,
+    40062
+   ],
+   "prompt": "a long dark corridor with a single lit doorway at the end, cinematic"
+  },
+  {
+   "id": "s08",
+   "seeds": [
+    40071,
+    40072
+   ],
+   "prompt": "storm clouds breaking apart over the sea, sun rays bursting through, dramatic"
+  },
+  {
+   "id": "s09",
+   "seeds": [
+    40081,
+    40082
+   ],
+   "prompt": "a man standing on a cliff facing a calm sea at sunrise, seen from behind, soft blue and gold"
+  }
+ ]
+}

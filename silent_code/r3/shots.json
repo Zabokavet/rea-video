@@ -1,0 +1,78 @@
+{
+ "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "shots": [
+  {
+   "id": "s01",
+   "seeds": [
+    30001,
+    30002
+   ],
+   "prompt": "an old smartphone lying on a kitchen counter, screen softly glowing, warm evening lamp light, nostalgic"
+  },
+  {
+   "id": "s02",
+   "seeds": [
+    30011,
+    30012
+   ],
+   "prompt": "an elderly couple sitting on a porch bench at sunset, seen from behind, warm golden light"
+  },
+  {
+   "id": "s03",
+   "seeds": [
+    30021,
+    30022
+   ],
+   "prompt": "a smartphone vibrating on an office desk next to a laptop, a young man's hand pushing it aside, cool office light"
+  },
+  {
+   "id": "s04",
+   "seeds": [
+    30031,
+    30032
+   ],
+   "prompt": "close up of an elderly man's wrinkled hands holding an old photograph, warm lamp light"
+  },
+  {
+   "id": "s05",
+   "seeds": [
+    30041,
+    30042
+   ],
+   "prompt": "a mother's hands setting a steaming plate of home cooked food on a family dinner table, warm light"
+  },
+  {
+   "id": "s06",
+   "seeds": [
+    30051,
+    30052
+   ],
+   "prompt": "an empty armchair by a window with a knitted blanket folded on it, soft dusty sunlight, quiet"
+  },
+  {
+   "id": "s07",
+   "seeds": [
+    30061,
+    30062
+   ],
+   "prompt": "a young man holding a phone to his ear by a bright window, seen from behind, soft morning light"
+  },
+  {
+   "id": "s08",
+   "seeds": [
+    30071,
+    30072
+   ],
+   "prompt": "close up of an old brass pocket watch open in an elderly hand, warm light, shallow focus"
+  },
+  {
+   "id": "s09",
+   "seeds": [
+    30081,
+    30082
+   ],
+   "prompt": "close up of an elderly woman's hand holding a younger hand on a kitchen table, soft warm light"
+  }
+ ]
+}

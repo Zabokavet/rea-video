@@ -11,14 +11,15 @@ env = np.array([np.sqrt((pcm[i:i+160]**2).mean()) for i in range(0, len(pcm)-160
 on = np.where(env > 0.02)[0]; st = on[0]
 k = st
 while k < len(env) and (env[k:k+25] > 0.02).any(): k += 1   # until >=250 ms of silence
+HAS_POV = script.split()[0] == "POV:"
 pov = (st/100, k/100)
-off = int((pov[1]+0.1)*16000)
+off = int((pov[1]+0.1)*16000) if HAS_POV else 0
 segs, _ = m.transcribe(pcm[off:], word_timestamps=True, beam_size=5, initial_prompt="POV:")
 hw = [w for s in segs for w in s.words]
 for w in hw: w.start += off/16000; w.end += off/16000
 norm = lambda t: re.sub(r"[^a-z0-9']", "", t.lower().replace("’", "'"))
 sw = script.split()
-assert sw[0] == "POV:"; sw = sw[1:]
+sw = sw[1:] if HAS_POV else sw
 hn = [norm(w.word) for w in hw]
 hn = ["pov" if h in ("pov", "pv", "pob") else h for h in hn]
 sn = [norm(w) for w in sw]
@@ -41,5 +42,5 @@ for k in range(len(t)):
 ratio = sm.ratio()
 print("heard:", " ".join(w.word.strip() for w in hw))
 print("match ratio:", round(ratio, 3))
-t = [pov] + t; sw = ["POV:"] + sw
+if HAS_POV: t = [pov] + t; sw = ["POV:"] + sw
 json.dump([{"w": w, "s": round(a, 3), "e": round(b, 3)} for w, (a, b) in zip(sw, t)], open(out, "w"), indent=0)

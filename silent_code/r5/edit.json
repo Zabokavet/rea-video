@@ -1,0 +1,99 @@
+{
+ "out": "THE_SILENT_CODE_You_Cant_Change_Someone_Who_Wont.mp4",
+ "accent": "#7CF2A5",
+ "grade": "eq=contrast=1.07:saturation=0.92:gamma=0.98,colorbalance=rs=-0.05:gs=0.03:bs=0.02:rh=0.03:gh=0.01:bh=-0.03",
+ "music": {
+  "root": 50.0,
+  "chords": [
+   [
+    0,
+    7,
+    12,
+    15
+   ],
+   [
+    -4,
+    3,
+    8,
+    12
+   ],
+   [
+    -2,
+    5,
+    10,
+    14
+   ],
+   [
+    3,
+    10,
+    15,
+    19
+   ]
+  ],
+  "gain": 0.07
+ },
+ "particles": "rain",
+ "punch": [
+  "change#2",
+  "fault",
+  "door",
+  "light",
+  "both",
+  "peace",
+  "carrying#2"
+ ],
+ "shots": [
+  {
+   "img": "kf/s01_50001.png",
+   "move": "dolly_in",
+   "until": "change#2"
+  },
+  {
+   "img": "kf/s02_50011.png",
+   "move": "dolly_in",
+   "until": "fault",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/s03_50021.png",
+   "move": "dolly_in",
+   "until": "door",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s04_50031.png",
+   "move": "pan_left",
+   "until": "light"
+  },
+  {
+   "img": "kf/s05_50041.png",
+   "move": "dolly_in",
+   "until": "them#2"
+  },
+  {
+   "img": "kf/s06_50051.png",
+   "move": "rise",
+   "until": "them#3"
+  },
+  {
+   "img": "kf/s07_50061.png",
+   "move": "pan_right",
+   "until": "both"
+  },
+  {
+   "img": "kf/s08_50071.png",
+   "move": "dolly_out",
+   "until": "to#2",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s09_50081.png",
+   "move": "dolly_in",
+   "until": "peace"
+  },
+  {
+   "img": "kf/s10_50091.png",
+   "move": "dolly_out"
+  }
+ ]
+}

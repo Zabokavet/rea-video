@@ -1,0 +1,86 @@
+{
+ "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "shots": [
+  {
+   "id": "s01",
+   "seeds": [
+    50001,
+    50002
+   ],
+   "prompt": "a man standing alone in heavy rain at night under a streetlight, seen from behind, teal green tones"
+  },
+  {
+   "id": "s02",
+   "seeds": [
+    50011,
+    50012
+   ],
+   "prompt": "close up of two open hands palms up catching rain drops, dark teal light"
+  },
+  {
+   "id": "s03",
+   "seeds": [
+    50021,
+    50022
+   ],
+   "prompt": "a door opening onto bright light at the end of a dark hallway"
+  },
+  {
+   "id": "s04",
+   "seeds": [
+    50031,
+    50032
+   ],
+   "prompt": "close up of a hand holding an old lantern on a dark misty forest path, warm glow"
+  },
+  {
+   "id": "s05",
+   "seeds": [
+    50041,
+    50042
+   ],
+   "prompt": "two people walking side by side on a misty forest path, seen from behind, soft green light"
+  },
+  {
+   "id": "s06",
+   "seeds": [
+    50051,
+    50052
+   ],
+   "prompt": "close up of worn boots at the bottom of a stone staircase leading up into bright light"
+  },
+  {
+   "id": "s07",
+   "seeds": [
+    50061,
+    50062
+   ],
+   "prompt": "a man carrying a huge heavy backpack up a steep rocky hill, exhausted, seen from behind, overcast"
+  },
+  {
+   "id": "s08",
+   "seeds": [
+    50071,
+    50072
+   ],
+   "prompt": "a person standing in a field at dusk watching another person walk far away, seen from behind"
+  },
+  {
+   "id": "s09",
+   "seeds": [
+    50081,
+    50082
+   ],
+   "prompt": "a person sitting calmly by a still lake at sunrise, seen from behind, soft gold and green"
+  },
+  {
+   "id": "s10",
+   "seeds": [
+    50091,
+    50092
+   ],
+   "prompt": "a heavy backpack set down on a mountain summit at sunrise, golden light, peaceful"
+  }
+ ]
+}

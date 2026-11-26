@@ -1,0 +1,86 @@
+{
+ "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "shots": [
+  {
+   "id": "s01",
+   "seeds": [
+    10001,
+    10002
+   ],
+   "prompt": "a man sitting calm and still at a crowded loud bar at night, people laughing blurred around him, his face in shadow, cold teal light"
+  },
+  {
+   "id": "s02",
+   "seeds": [
+    10011,
+    10012
+   ],
+   "prompt": "a man walking away down a long dark corridor toward a bright doorway, seen from behind, cold blue light"
+  },
+  {
+   "id": "s03",
+   "seeds": [
+    10021,
+    10022
+   ],
+   "prompt": "close up of hands zipping a packed suitcase on a bed at night, cold blue moonlight"
+  },
+  {
+   "id": "s04",
+   "seeds": [
+    10031,
+    10032
+   ],
+   "prompt": "extreme close up of a calm man's eye reflecting city lights at night, teal tones"
+  },
+  {
+   "id": "s05",
+   "seeds": [
+    10041,
+    10042
+   ],
+   "prompt": "two coffee mugs on a kitchen table, one chair pushed in and empty, cold morning light, quiet tension"
+  },
+  {
+   "id": "s06",
+   "seeds": [
+    10051,
+    10052
+   ],
+   "prompt": "an old wall clock in a dark quiet room, a thin beam of cold light, dust in the air"
+  },
+  {
+   "id": "s07",
+   "seeds": [
+    10061,
+    10062
+   ],
+   "prompt": "silhouette of a man standing still at a tall window looking over a city at night, seen from behind, teal and blue"
+  },
+  {
+   "id": "s08",
+   "seeds": [
+    10071,
+    10072
+   ],
+   "prompt": "close up of a man's hand placing house keys on a wooden table by the front door, cold light"
+  },
+  {
+   "id": "s09",
+   "seeds": [
+    10081,
+    10082
+   ],
+   "prompt": "an empty room, a door left half open, pale light spilling across the floor, a single chair"
+  },
+  {
+   "id": "s10",
+   "seeds": [
+    10091,
+    10092
+   ],
+   "prompt": "a lone figure walking away on a long empty road at blue dawn, mist, seen from far behind"
+  }
+ ]
+}

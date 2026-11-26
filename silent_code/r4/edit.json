@@ -1,0 +1,93 @@
+{
+ "out": "THE_SILENT_CODE_Never_Answer_In_The_First_10_Minutes.mp4",
+ "accent": "#FF4D4D",
+ "grade": "eq=contrast=1.12:saturation=0.95:gamma=0.95,colorbalance=rs=0.06:gs=-0.02:bs=0.02:rh=0.03:bh=0.02",
+ "music": {
+  "root": 46.0,
+  "chords": [
+   [
+    0,
+    7,
+    12,
+    15
+   ],
+   [
+    1,
+    8,
+    13,
+    16
+   ],
+   [
+    -2,
+    5,
+    10,
+    13
+   ],
+   [
+    0,
+    7,
+    12,
+    15
+   ]
+  ],
+  "gain": 0.075
+ },
+ "particles": "rain",
+ "punch": [
+  "minutes#1",
+  "win",
+  "years",
+  "tomorrow",
+  "breathe",
+  "once"
+ ],
+ "shots": [
+  {
+   "img": "kf/s01_40001.png",
+   "move": "dolly_in",
+   "until": "minutes#1"
+  },
+  {
+   "img": "kf/s02_40011.png",
+   "move": "dolly_in",
+   "until": "win",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/s03_40021.png",
+   "move": "rise",
+   "until": "minutes#2",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s04_40031.png",
+   "move": "dolly_in",
+   "until": "years"
+  },
+  {
+   "img": "kf/s05_40041.png",
+   "move": "pan_right",
+   "until": "tomorrow"
+  },
+  {
+   "img": "kf/s06_40051.png",
+   "move": "dolly_out",
+   "until": "can't"
+  },
+  {
+   "img": "kf/s07_40061.png",
+   "move": "dolly_in",
+   "until": "truth"
+  },
+  {
+   "img": "kf/s08_40071.png",
+   "move": "rise",
+   "until": "pass",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s09_40081.png",
+   "move": "dolly_out"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "out": "THE_SILENT_CODE_Every_Person_Is_One_Of_Two_Things.mp4",
+ "accent": "#FFB547",
+ "grade": "eq=contrast=1.05:saturation=1.1:gamma=0.98,colorbalance=rs=0.06:gs=0.02:bs=-0.06:rh=0.04:bh=-0.05",
+ "music": {
+  "root": 55.0,
+  "chords": [
+   [
+    0,
+    7,
+    12,
+    16
+   ],
+   [
+    -3,
+    4,
+    9,
+    12
+   ],
+   [
+    -7,
+    0,
+    5,
+    9
+   ],
+   [
+    -5,
+    2,
+    7,
+    11
+   ]
+  ],
+  "gain": 0.07
+ },
+ "particles": "bokeh",
+ "punch": [
+  "two",
+  "leave",
+  "joy",
+  "open",
+  "thank",
+  "go"
+ ],
+ "shots": [
+  {
+   "img": "kf/s01_20001.png",
+   "move": "dolly_in",
+   "until": "things"
+  },
+  {
+   "img": "kf/s02_20011.png",
+   "move": "pan_right",
+   "until": "leave",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/s03_20021.png",
+   "move": "dolly_in",
+   "until": "joy",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s04_20031.png",
+   "move": "dolly_in",
+   "until": "open"
+  },
+  {
+   "img": "kf/s05_20041.png",
+   "move": "pan_left",
+   "until": "miss"
+  },
+  {
+   "img": "kf/s06_20051.png",
+   "move": "rise",
+   "until": "hurting"
+  },
+  {
+   "img": "kf/s07_20061.png",
+   "move": "dolly_in",
+   "until": "with",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/s08_20071.png",
+   "move": "dolly_in",
+   "until": "blessing"
+  },
+  {
+   "img": "kf/s09_20081.png",
+   "move": "dolly_out",
+   "until": "lesson"
+  },
+  {
+   "img": "kf/s10_20091.png",
+   "move": "rise"
+  }
+ ]
+}
