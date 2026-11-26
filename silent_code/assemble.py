@@ -138,7 +138,19 @@ def upscaled(path):
     Image.blend(up, lz, 0.3).save(out)
     return out
 
-imgs = [Image.open(upscaled(s["img"])).convert("RGB") for s in shots]
+def privacy_blur(im, boxes):
+    """Heavy feathered blur over screen regions (boxes in keyframe px, 768x1344) so no text is readable."""
+    if not boxes: return im
+    from PIL import ImageDraw
+    k = im.size[0] / 768
+    bl = im.filter(ImageFilter.GaussianBlur(28 * k))
+    mask = Image.new("L", im.size, 0); d = ImageDraw.Draw(mask)
+    for b in boxes:
+        d.rounded_rectangle([v * k for v in b], radius=int(30 * k), fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(10 * k))
+    return Image.composite(bl, im, mask)
+
+imgs = [privacy_blur(Image.open(upscaled(s["img"])).convert("RGB"), s.get("blur")) for s in shots]
 
 # ---------------------------------------------------------------- motion
 rng = np.random.default_rng(7)

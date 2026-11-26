@@ -1,0 +1,64 @@
+{
+ "common": "first-person POV photo, photorealistic, 35mm film, shallow depth of field",
+ "neg": "selfie, mirror, extra fingers, fused fingers, deformed hands, mutated hands, extra hands, missing fingers, text, letters, watermark, logo, brand, cartoon, illustration, 3d render, painting, blurry, lowres, distorted face, deformed face, cross-eyed, wristwatch, watch, bracelet, jewelry, ring, many hands",
+ "hands": "man's hands, bare wrists, light grey hoodie sleeves",
+ "shots": [
+  {
+   "id": "s1",
+   "seeds": [
+    3101,
+    3102,
+    3103,
+    3104
+   ],
+   "prompt": "POV in a pitch dark room, my man's hands, bare wrists, light grey hoodie sleeves holding a smartphone, thumb hovering above the screen, cold white screen glow lighting the hand, tense night, natural five fingers"
+  },
+  {
+   "id": "s2",
+   "seeds": [
+    3201,
+    3202,
+    3203
+   ],
+   "prompt": "POV looking down at an open laptop on a desk in a dark room at night, glowing screen showing a grid of blurred screenshots, cold light, tense, lonely"
+  },
+  {
+   "id": "s3",
+   "seeds": [
+    3301,
+    3302,
+    3303,
+    3304
+   ],
+   "prompt": "POV close up of my man's hands, bare wrists, light grey hoodie sleeves closing the lid of a silver laptop in a dark room at night, last glow of the screen fading, natural five fingers"
+  },
+  {
+   "id": "s4",
+   "seeds": [
+    3401,
+    3402,
+    3403,
+    3404
+   ],
+   "prompt": "POV pouring hot coffee from a glass carafe into a white mug with my man's hands, bare wrists, light grey hoodie sleeves, bright calm white kitchen, morning sunlight streaming through window, steam, peaceful, natural five fingers"
+  },
+  {
+   "id": "s5",
+   "seeds": [
+    3501,
+    3502,
+    3503
+   ],
+   "prompt": "POV holding a steaming white coffee mug in my man's hands, bare wrists, light grey hoodie sleeves next to a bright sunny kitchen window, plants, soft morning sunlight, light airy peaceful, natural five fingers"
+  },
+  {
+   "id": "s6",
+   "seeds": [
+    3601,
+    3602,
+    3603
+   ],
+   "prompt": "POV looking out a bright kitchen window at a sunny calm morning garden, sheer curtains glowing, white light, serenity, no people"
+  }
+ ]
+}

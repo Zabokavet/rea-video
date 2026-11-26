@@ -1,0 +1,64 @@
+{
+ "common": "first-person POV photo, photorealistic, 35mm film, shallow depth of field",
+ "neg": "selfie, mirror, extra fingers, fused fingers, deformed hands, mutated hands, extra hands, missing fingers, text, letters, watermark, logo, brand, cartoon, illustration, 3d render, painting, blurry, lowres, distorted face, deformed face, cross-eyed, wristwatch, watch, bracelet, jewelry, ring, many hands",
+ "hands": "man's hands, bare wrists, black hoodie sleeves",
+ "shots": [
+  {
+   "id": "s1",
+   "seeds": [
+    1101,
+    1102,
+    1103,
+    1104
+   ],
+   "prompt": "POV close up looking down at my man's hands, bare wrists, black hoodie sleeves holding a smartphone with both thumbs typing a long message, dark bedroom at night, only the cold blue glow of the screen lighting the hands, moody, natural five fingers"
+  },
+  {
+   "id": "s2",
+   "seeds": [
+    1201,
+    1202,
+    1203
+   ],
+   "prompt": "POV looking down at a smartphone held in my man's hands, bare wrists, black hoodie sleeves, thumb pressing the delete key, empty text box, dark room at night lit only by the cold blue screen glow, lonely, natural five fingers"
+  },
+  {
+   "id": "s3",
+   "seeds": [
+    1301,
+    1302,
+    1303,
+    1304
+   ],
+   "prompt": "POV looking down at my own hands tying the laces of black running shoes, black jogger pants, front doorstep at sunrise, soft pink and orange dawn light, fresh morning, natural five fingers"
+  },
+  {
+   "id": "s4",
+   "seeds": [
+    1401,
+    1402,
+    1403
+   ],
+   "prompt": "POV running alone through a quiet empty city street at dawn, soft pink and peach sunrise light, mist, empty sidewalks, motion, freedom, no people"
+  },
+  {
+   "id": "s5",
+   "seeds": [
+    1501,
+    1502,
+    1503,
+    1504
+   ],
+   "prompt": "POV seated at a bright cafe table by a sunny window, a cup of cappuccino and an open paperback book in front of me, my hands resting calmly on the table, black hoodie sleeves, warm sunlight, calm peaceful morning, natural five fingers"
+  },
+  {
+   "id": "s6",
+   "seeds": [
+    1601,
+    1602,
+    1603
+   ],
+   "prompt": "POV looking out of a bright cafe window onto a sunny quiet street, coffee cup on the wooden table in foreground, soft warm sunlight, peaceful, airy, no people"
+  }
+ ]
+}
