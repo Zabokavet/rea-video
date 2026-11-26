@@ -1,14 +1,15 @@
 {
  "common": "cinematic film still, photorealistic, 35mm film grain, shallow depth of field, dramatic light",
- "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated",
+ "neg": "text, letters, words, signage, watermark, logo, brand, cartoon, illustration, 3d render, painting, deformed hands, extra fingers, fused fingers, distorted face, deformed face, blurry, lowres, oversaturated, smiling, laughing, grin, open mouth",
  "shots": [
   {
-   "id": "s01",
+   "id": "s01b",
    "seeds": [
-    10001,
-    10002
+    10005,
+    10006,
+    10007
    ],
-   "prompt": "a man sitting calm and still at a crowded loud bar at night, people laughing blurred around him, his face in shadow, cold teal light"
+   "prompt": "a quiet calm man with a neutral serious expression sitting still at a crowded loud bar at night, looking down at his glass, blurred people laughing around him, cold teal light, his face half in shadow"
   },
   {
    "id": "s02",
