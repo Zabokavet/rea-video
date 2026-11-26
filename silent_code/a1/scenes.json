@@ -1,0 +1,56 @@
+{
+ "common": "3d animated film style, stylized cartoon character render, soft subsurface skin, cinematic lighting, highly detailed",
+ "neg": "photo, photorealistic, text, letters, watermark, logo, deformed face, asymmetric eyes, extra fingers, fused fingers, deformed hands, blurry, lowres, portrait, crowd of faces, looking at camera, many faces",
+ "ref": "a1/ref_face.png",
+ "ref_scale": 0.32,
+ "shots": [
+  {
+   "id": "b1",
+   "seeds": [
+    601,
+    602
+   ],
+   "prompt": "wide shot of a lively noisy party in a living room, friends laughing and dancing, and one man with short dark hair, light stubble, teal hoodie sitting quietly alone on the couch looking down, warm and teal lights"
+  },
+  {
+   "id": "b2",
+   "seeds": [
+    611,
+    612
+   ],
+   "prompt": "close up of a man with short dark hair, light stubble, teal hoodie, eyes remembering, a calm sad face lit by cold blue window light at night, thoughtful"
+  },
+  {
+   "id": "b3",
+   "seeds": [
+    621,
+    622
+   ],
+   "prompt": "a man with short dark hair, light stubble, teal hoodie sitting silently at a kitchen table looking away while a woman across the table talks and gestures, evening, tense mood"
+  },
+  {
+   "id": "b4",
+   "seeds": [
+    631,
+    632
+   ],
+   "prompt": "a man with short dark hair, light stubble, teal hoodie sitting on the edge of a bed at night looking at a glowing phone, blue screen light on his face, room dark, quiet hurt"
+  },
+  {
+   "id": "b5",
+   "seeds": [
+    641,
+    642
+   ],
+   "prompt": "a man with short dark hair, light stubble, teal hoodie packing clothes into an open suitcase on a bed at night, determined calm face, moonlight through window"
+  },
+  {
+   "id": "b6",
+   "seeds": [
+    651,
+    652
+   ],
+   "prompt": "a man with short dark hair, light stubble, teal hoodie seen from behind walking away alone down an empty road at dawn carrying a bag, mist, soft blue and gold light, wide shot"
+  }
+ ]
+}

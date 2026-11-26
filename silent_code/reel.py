@@ -159,7 +159,21 @@ def privacy_blur(im, boxes):
 
 layers = []
 if not REUSE:
+    _vid_cache = {}
     for s in shots:
+        if s.get("video"):   # talking-avatar clip (SadTalker): frames + depth of its source still
+            vp = f"{D}/{s['video']}"
+            if vp not in _vid_cache:
+                cap = cv2.VideoCapture(vp); fr_ = []
+                while True:
+                    ok, f_ = cap.read()
+                    if not ok: break
+                    fr_.append(cv2.cvtColor(f_, cv2.COLOR_BGR2RGB))
+                _vid_cache[vp] = (fr_, cap.get(cv2.CAP_PROP_FPS) or 25.0)
+            frames, vfps = _vid_cache[vp]
+            d = depth_of(s["img"])
+            d = cv2.GaussianBlur(cv2.resize(d, (frames[0].shape[1], frames[0].shape[0]), interpolation=cv2.INTER_CUBIC), (0, 0), 9)
+            layers.append(((frames, vfps), d)); continue
         im = privacy_blur(Image.open(upscaled(s["img"])).convert("RGB"), s.get("blur"))
         img = np.asarray(im).astype(np.float32)
         d = depth_of(s["img"])
@@ -189,6 +203,10 @@ def render(i, k, u):
     """shot i, global frame k, local progress u (0..1) -> HxWx3 float32."""
     img, dep = layers[i]; s = shots[i]
     ih, iw = dep.shape
+    if isinstance(img, tuple):   # video layer: pick the frame in sync with the narration
+        frames, vfps = img
+        lt = s["video_offset"] + (k / FPS - s["span_start"])
+        img = frames[int(min(max(lt, 0), len(frames) / vfps - 1e-3) * vfps)]
     base = max(W / iw, H / ih) * 1.12          # 12% overscan = room for parallax
     mv = s.get("move", "dolly_in"); e = ease(u); tt = k / FPS
     zoom, px, py, par = 1.0, 0.0, 0.0, 0.0     # par = parallax strength (pixels at depth 1)
@@ -199,7 +217,7 @@ def render(i, k, u):
     if mv == "rise":      py = (0.5 - e) * 90; zoom = 1.05
     if mv == "fall":      py = (e - 0.5) * 90; zoom = 1.05
     if mv == "orbit":     px = math.sin(u * math.pi - math.pi / 2) * 60; zoom = 1.05 + 0.04 * e
-    zoom *= 1 + 0.045 * punch(tt)
+    zoom *= (1 + 0.045 * punch(tt)) * s.get("zoom", 1.0)
     fx, fy = s.get("focus", (0.5, 0.5))
     # output pixel -> normalized offset from frame centre
     ox, oy = (xs - W / 2) + np.float32(hx[k]), (ys - H / 2) + np.float32(hy[k])
@@ -211,7 +229,7 @@ def render(i, k, u):
     sc_d = sc * (1 + par * dd)
     sx = iw * fx + ox / sc_d - px * (0.35 + dd) / base
     sy = ih * fy + oy / sc_d - py * (0.35 + dd) / base
-    return cv2.remap(img, sx.astype(np.float32), sy.astype(np.float32), cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+    return cv2.remap(img, sx.astype(np.float32), sy.astype(np.float32), cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT).astype(np.float32)
 
 # ------------------------------------------------------------------ particles & light
 P = E.get("particles")

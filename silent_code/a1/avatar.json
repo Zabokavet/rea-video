@@ -1,0 +1,3 @@
+{"common": "3d animated film style, stylized cartoon character render, soft subsurface skin, cinematic lighting, highly detailed",
+ "neg": "photo, photorealistic, realistic skin pores, text, watermark, logo, deformed face, asymmetric eyes, cross-eyed, extra fingers, open mouth, teeth, hands, blurry, lowres",
+ "shots": [{"id": "avatar", "seeds": [501, 502, 503, 504], "prompt": "head and shoulders portrait of a calm wise man in his thirties facing the camera, short dark hair, light stubble, dark hoodie, mouth closed, gentle serious expression, looking straight at the viewer, dark teal background with soft rim light"}]}

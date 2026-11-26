@@ -1,0 +1,129 @@
+{
+ "out": "THE_SILENT_CODE_SAMPLE_Animated_Avatar_The_Calmest_One.mp4",
+ "accent": "#5CE1E6",
+ "grade": "eq=contrast=1.08:saturation=0.88:gamma=0.97,colorbalance=rs=-0.05:gs=0.0:bs=0.07:rm=-0.03:bm=0.04:rh=0.02:bh=-0.02",
+ "music": {
+  "root": 49.0,
+  "chords": [
+   [
+    0,
+    7,
+    12,
+    15
+   ],
+   [
+    -4,
+    3,
+    8,
+    12
+   ],
+   [
+    -5,
+    2,
+    7,
+    10
+   ],
+   [
+    0,
+    7,
+    12,
+    15
+   ]
+  ],
+  "gain": 0.07
+ },
+ "particles": "dust",
+ "punch": [
+  "leaving",
+  "counted",
+  "decision",
+  "goodbye"
+ ],
+ "shots": [
+  {
+   "img": "kf/avatar_501.png",
+   "video": "talk/avatar.mp4",
+   "span_start": 0.0,
+   "video_offset": 0,
+   "move": "dolly_in",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "zoom": 0.92,
+   "until": "room"
+  },
+  {
+   "img": "kf/b1_601.png",
+   "until": "leaving",
+   "move": "dolly_in"
+  },
+  {
+   "img": "kf/avatar_501.png",
+   "video": "talk/avatar.mp4",
+   "span_start": 4.97,
+   "video_offset": 1.9,
+   "move": "dolly_in",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "zoom": 0.92,
+   "until": "why",
+   "tr": "whip"
+  },
+  {
+   "img": "kf/b2_611.png",
+   "until": "did#1",
+   "move": "dolly_in",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/b3_621.png",
+   "until": "it#2",
+   "move": "pan_left"
+  },
+  {
+   "img": "kf/b4_631.png",
+   "until": "counted",
+   "move": "dolly_in"
+  },
+  {
+   "img": "kf/avatar_501.png",
+   "video": "talk/avatar.mp4",
+   "span_start": 17.57,
+   "video_offset": 5.33,
+   "move": "dolly_out",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "zoom": 0.92,
+   "until": "weakness"
+  },
+  {
+   "img": "kf/b5_641.png",
+   "until": "made",
+   "move": "dolly_in"
+  },
+  {
+   "img": "kf/avatar_501.png",
+   "video": "talk/avatar.mp4",
+   "span_start": 21.92,
+   "video_offset": 7.53,
+   "move": "dolly_in",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "zoom": 0.92,
+   "until": "peace",
+   "tr": "flash"
+  },
+  {
+   "img": "kf/b6_651.png",
+   "move": "dolly_out"
+  }
+ ],
+ "cap_y": 1460
+}
