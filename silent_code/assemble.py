@@ -135,7 +135,7 @@ def upscaled(path):
     up = Image.fromarray((y[0].permute(1, 2, 0).clamp(0, 1).numpy() * 255).round().astype(np.uint8))
     # blend 70/30 with lanczos to keep natural film texture (ESRGAN alone looks waxy)
     lz = Image.open(f"{D}/{path}").convert("RGB").resize(up.size, Image.LANCZOS)
-    Image.blend(up, lz, 0.3).save(out)
+    Image.blend(up, lz, 0.45).save(out)
     return out
 
 def privacy_blur(im, boxes):
@@ -240,14 +240,14 @@ ass = [f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
 PlayResY: {H}
-WrapStyle: 2
+WrapStyle: 0
 ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Cap,Inter Display ExtraBold,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,6,3,2,90,90,560,1
 Style: Hook,Inter Display Black,96,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,7,4,8,80,80,330,1
-Style: Tag,Inter Display SemiBold,40,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,9,0,1,2,1,2,60,60,250,1
+Style: Tag,Inter Display SemiBold,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,9,0,1,2,1,2,60,60,250,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"""]
@@ -255,6 +255,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
 # hook: first 3 s, "POV:" in accent colour, pops in
 hook = E["hook"]
 pre, _, rest = hook.partition(":")
+lines, cur_ = [], ""
+for wd in rest.split():
+    if cur_ and len(cur_) + 1 + len(wd) > 15: lines.append(cur_); cur_ = wd
+    else: cur_ = (cur_ + " " + wd).strip()
+lines.append(cur_)
+rest = "\\N".join(lines)
 ass.append(f"Dialogue: 2,{ts(0.0)},{ts(3.0)},Hook,,0,0,0,,{{\\fad(150,250)\\fscx88\\fscy88\\t(0,180,\\fscx100\\fscy100)}}"
            f"{{\\c{ACC}}}{pre}:{{\\c&H00FFFFFF&}}\\N{rest.strip()}")
 
