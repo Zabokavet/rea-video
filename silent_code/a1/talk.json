@@ -1,0 +1,3 @@
+{"base": "kf/avatar_501.png", "small": "mouths/small_1.png", "open": "mouths/small_2.png", "oh": "mouths/small_1.png",
+ "ee": "mouths/small_2.png", "blink": "mouths/blink_2.png", "mask_mouth": "mouths/mask_mouth.png",
+ "mask_eyes": "mouths/mask_eyes.png", "pivot": [384, 1000]}
