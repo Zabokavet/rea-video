@@ -1,0 +1,55 @@
+:root {
+  --bg: #f6f5f2; --surface: #ffffff; --text: #1d1c1a; --muted: #6b675f; --border: #e2ded6;
+  --accent: #4b45c6; --accent-text: #ffffff; --ok: #1f7a3d; --err: #b3261e; --err-bg: #fdecea;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #201f1d; --text: #ecebe8; --muted: #a29e95; --border: #34322e;
+    --accent: #8b86f0; --accent-text: #111; --ok: #6cc98a; --err: #ff8a80; --err-bg: #3a1d1b;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding-bottom: 180px; }
+.top, main { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+.top h1 { margin: 28px 0 4px; font-size: 1.7rem; }
+.sub, .hint { color: var(--muted); font-size: .9rem; margin: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; }
+.card h2 { margin: 0 0 14px; font-size: 1.15rem; }
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: .9rem; margin-bottom: 12px; flex: 1; min-width: 0; }
+input, textarea, select { font: inherit; font-weight: 400; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; }
+textarea { resize: vertical; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row label { min-width: 180px; }
+button, .button { font: inherit; font-size: .9rem; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; padding: 7px 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+button:hover, .button:hover { border-color: var(--accent); }
+.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+.danger { color: var(--err); }
+button:disabled, .button[aria-disabled="true"] { opacity: .45; cursor: not-allowed; pointer-events: none; }
+.banner { background: var(--err-bg); color: var(--err); border-radius: 8px; padding: 10px 14px; margin-top: 16px; }
+.job { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+.job-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+progress { width: 100%; height: 8px; margin: 8px 0; accent-color: var(--accent); }
+.ok { color: var(--ok); font-weight: 600; margin: 6px 0; }
+.error { color: var(--err); margin: 6px 0; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.lib-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.lib-head h2 { margin: 0; }
+.lib-head input { max-width: 280px; }
+.library { list-style: none; margin: 0; padding: 0; }
+.item { display: flex; justify-content: space-between; gap: 14px; padding: 14px 0; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.item:first-child { border-top: 0; }
+.item-main { flex: 1 1 300px; min-width: 0; }
+.item-meta { display: block; }
+.item-excerpt { margin: 4px 0 0; color: var(--muted); font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item.playing { box-shadow: inset 3px 0 0 var(--accent); padding-left: 10px; }
+.player { position: fixed; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--border); padding: 10px 16px 14px; box-shadow: 0 -4px 18px rgba(0,0,0,.08); }
+.player-title { max-width: 920px; margin: 0 auto 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.player-controls { max-width: 920px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.player-controls input[type=range] { flex: 1 1 200px; padding: 0; accent-color: var(--accent); }
+.time { font-variant-numeric: tabular-nums; font-size: .88rem; color: var(--muted); }
+.speed { flex-direction: row; align-items: center; margin: 0; flex: 0 0 auto; }
+.speed select { width: auto; padding: 5px 6px; }
+#p-toggle { min-width: 84px; justify-content: center; }
