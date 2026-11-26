@@ -10,6 +10,7 @@ print(f"format: {v['width']}x{v['height']} {v['codec_name']} {v['r_frame_rate']}
 lo = subprocess.run(["ffmpeg","-i",F,"-af","ebur128=peak=true","-f","null","-"],capture_output=True,text=True).stderr
 print("loudness:", re.findall(r"I:\s+(-?[\d.]+) LUFS", lo)[-1], "LUFS  true peak:", re.findall(r"Peak:\s+(-?[\d.]+) dBFS", lo)[-1], "dBTP")
 pcm = np.frombuffer(subprocess.run(["ffmpeg","-v","quiet","-i",F,"-ac","1","-ar","16000","-f","f32le","-"],capture_output=True).stdout, np.float32)
+pcm = np.concatenate([pcm, np.zeros(12000, np.float32)])
 segs,_ = WhisperModel("small.en",device="cpu",compute_type="int8").transcribe(pcm, beam_size=5)
 heard = " ".join(s.text.strip() for s in segs)
 n = lambda ws: [re.sub(r"[^a-z0-9']","",w.lower()) for w in ws]
@@ -22,11 +23,11 @@ ass = open(f"{D}/build/captions.ass").read()
 caps = []
 for line in ass.splitlines():
     if line.startswith("Dialogue: 1,"):
-        txt = re.sub(r"\{[^}]*\}","",line.split(",,0,0,0,,",1)[1])
+        txt = re.sub(r"\{[^}]*\}","",line.split(",,0,0,0,,",1)[1]).lower()
         caps.append(txt)
 # each chunk appears once per word; take unique consecutive chunks
 uniq = [c for i,c in enumerate(caps) if i==0 or c!=caps[i-1]]
 capwords = " ".join(uniq).split()
-sw = [w.replace("—","") for w in script if w.replace("—","")]
+sw = [w.replace("—","").lower() for w in script if w.replace("—","")]
 print("captions == script word-for-word:", capwords == sw)
-if capwords != sw: print(difflib.ndiff(sw, capwords))
+if capwords != sw: print([d for d in difflib.ndiff(sw, capwords) if d[0] in '+-'])

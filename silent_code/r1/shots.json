@@ -82,6 +82,14 @@
     10092
    ],
    "prompt": "a lone figure walking away on a long empty road at blue dawn, mist, seen from far behind"
+  },
+  {
+   "id": "s06b",
+   "seeds": [
+    10055,
+    10056
+   ],
+   "prompt": "a single candle burning low in a dark empty room, thin smoke rising, cold blue moonlight from a window, quiet, dust in the air"
   }
  ]
 }

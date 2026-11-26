@@ -4,7 +4,9 @@ import sys, re, soundfile as sf, numpy as np
 from kokoro_onnx import Kokoro
 k = Kokoro("/root/models/kokoro-v1.0.onnx", "/root/models/voices-v1.0.bin")
 style = 0.6*k.get_voice_style("am_onyx") + 0.4*k.get_voice_style("am_michael")
+import os, json
 text, out = sys.argv[1], sys.argv[2]
+SAY = json.load(open(os.environ["SAY"])) if os.environ.get("SAY") else {}
 speed = float(sys.argv[3]) if len(sys.argv) > 3 else 0.92
 # split keeping punctuation; pause lengths by terminator
 parts = re.findall(r'.+?(?:\.\.\.|[.:!?—]|$)(?=\s|$)', text.strip())
@@ -14,6 +16,7 @@ for p in parts:
     if not p: continue
     say = p.replace("POV:", "P.O.V.").replace("...", ".").replace("—", ",")
     say = say.replace("'post'", "post")
+    for a_, b_ in SAY.items(): say = say.replace(a_, b_)   # pronunciation hints only; words unchanged
     a, sr = k.create(say, voice=style, speed=speed, lang="en-us")
     # trim leading/trailing silence
     idx = np.where(np.abs(a) > 0.01)[0]

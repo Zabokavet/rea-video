@@ -361,7 +361,7 @@ for ci, ch in enumerate(chunks):
                 big = 128 if norm(y["w"]) in PUNCH else 116
                 parts.append(f"{{\\c{ACC}\\fscx{big}\\fscy{big}\\t(0,110,\\fscx{big - 12}\\fscy{big - 12})}}{txt}{{\\c&H00FFFFFF&\\fscx100\\fscy100}}")
             elif wj > wi:
-                parts.append(f"{{\\alpha&H60&}}{txt}{{\\alpha&H00&}}")   # upcoming words dimmed: reading pull
+                parts.append(txt)
             else:
                 parts.append(txt)
         intro = f"\\move(540,{CAP_Y + 26},540,{CAP_Y},0,120)\\fad(80,0)" if wi == 0 else f"\\pos(540,{CAP_Y})"
