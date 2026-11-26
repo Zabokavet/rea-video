@@ -150,7 +150,7 @@ def privacy_blur(im, boxes):
     mask = mask.filter(ImageFilter.GaussianBlur(10 * k))
     return Image.composite(bl, im, mask)
 
-imgs = [privacy_blur(Image.open(upscaled(s["img"])).convert("RGB"), s.get("blur")) for s in shots]
+imgs = [] if os.environ.get("REUSE") == "1" else [privacy_blur(Image.open(upscaled(s["img"])).convert("RGB"), s.get("blur")) for s in shots]
 
 # ---------------------------------------------------------------- motion
 rng = np.random.default_rng(7)
@@ -173,9 +173,10 @@ def frame_of(i, k, tl):
     u = ease(tl)
     z0, z1 = {"push": (1.06, 1.16), "pull": (1.17, 1.06), "rise": (1.10, 1.14),
               "panL": (1.14, 1.14), "panR": (1.14, 1.14), "walk": (1.08, 1.22), "still": (1.08, 1.10)}[mv]
-    z = z0 + (z1 - z0) * u
+    z = (z0 + (z1 - z0) * u) * s.get("zoom", 1.0)
     cw, ch = W / (base * z), H / (base * z)
-    cx, cy = iw / 2, ih / 2
+    fx, fy = s.get("center", (0.5, 0.5))
+    cx, cy = iw * fx, ih * fy
     if mv == "panL": cx += (0.5 - u) * (iw - cw) * 0.6
     if mv == "panR": cx -= (0.5 - u) * (iw - cw) * 0.6
     if mv == "rise": cy += (0.5 - u) * (ih - ch) * 0.7
@@ -205,10 +206,11 @@ def frame_of(i, k, tl):
         fr = fr.transform((W, H), Image.EXTENT, (W * m_, H * m_, W * (1 - m_), H * (1 - m_)), Image.BICUBIC)
     return fr
 
-ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+REUSE = os.environ.get("REUSE") == "1" and os.path.exists(f"{D}/build/raw.mp4")
+ff = None if REUSE else subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                        "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "14",
                        "-pix_fmt", "yuv420p", f"{D}/build/raw.mp4"], stdin=subprocess.PIPE)
-for k in range(N):
+for k in ([] if REUSE else range(N)):
     tt = k / FPS
     i = max(j for j in range(len(shots)) if bounds[j] <= tt)
     a, b = bounds[i], bounds[i + 1]
@@ -226,7 +228,7 @@ for k in range(N):
         lo0, hi0 = a0 - (XF / 2 if i - 1 else 0), b0 + XF / 2
         fr = Image.blend(frame_of(i - 1, k, (tt - lo0) / (hi0 - lo0)), fr, ease(w))
     ff.stdin.write(fr.tobytes())
-ff.stdin.close(); ff.wait()
+if ff: ff.stdin.close(); ff.wait()
 
 # ---------------------------------------------------------------- ASS: hook, word-highlight captions, tag
 def hexass(h):  # #RRGGBB -> &H00BBGGRR
@@ -246,7 +248,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Cap,Inter Display ExtraBold,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,6,3,2,90,90,560,1
-Style: Hook,Inter Display Black,96,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,7,4,8,80,80,330,1
+Style: Hook,Inter Display Black,96,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,-1,0,0,0,100,100,1,0,1,7,4,8,70,70,190,1
 Style: Tag,Inter Display SemiBold,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,9,0,1,2,1,2,60,60,250,1
 
 [Events]
@@ -295,12 +297,12 @@ ass.append(f"Dialogue: 2,{ts(tag_s)},{ts(total)},Tag,,0,0,0,,{{\\fad(500,400)\\f
 open(f"{D}/build/captions.ass", "w").write("\n".join(ass) + "\n")
 
 # ---------------------------------------------------------------- final: grade + grain + vignette + captions + audio
-vf = (f"{E['grade']},vignette=angle=PI/5:mode=forward,noise=alls=7:allf=t,"
+vf = (f"{E['grade']},vignette=angle=PI/5:mode=forward,noise=alls=5:allf=t,"
       f"fade=t=in:st=0:d=0.35,fade=t=out:st={total-0.6}:d=0.6,"
       f"ass={D}/build/captions.ass,format=yuv420p")
 out = f"{D}/{E['out']}"
 subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{D}/build/raw.mp4", "-i", f"{D}/build/mix.wav",
-                "-vf", vf, "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "slow", "-crf", "17",
+                "-vf", vf, "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-maxrate", "16M", "-bufsize", "32M",
                 "-profile:v", "high", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
                 "-movflags", "+faststart", "-metadata", "title=" + E["title"], "-shortest", out], check=True)
 print("wrote", out, total, "s")

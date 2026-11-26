@@ -1,0 +1,11 @@
+{"title": "POV: You Stop Explaining Yourself", "out": "THE_SILENT_CODE_01_POV_You_Stop_Explaining_Yourself.mp4",
+ "hook": "POV: YOU STOP EXPLAINING YOURSELF", "accent": "#FFC247",
+ "grade": "eq=contrast=1.06:saturation=1.06:gamma=0.98,colorbalance=rs=0.05:gs=0.01:bs=-0.05:rm=0.04:bm=-0.04:rh=0.03:bh=-0.04",
+ "tail": 2.8, "music": {"root": 55.0, "chords": [[0,7,12,15],[-4,3,8,12],[-2,5,10,14],[0,7,12,16]], "gain": 0.07},
+ "sfx": [{"type": "buzz", "t": 13.05, "n": 3, "gain": 0.06}, {"type": "whoosh", "t": 22.3, "gain": 0.08}],
+ "shots": [{"img": "kf/s1_104.png", "until": "you#2", "move": "push"},
+           {"img": "kf/s2b_211.png", "until": "conversation", "move": "still", "center": [0.42, 0.64], "zoom": 1.2},
+           {"img": "kf/s3_304.png", "until": "stay", "move": "push", "shake": [13.05], "blur": [[285,360,512,705]]},
+           {"img": "kf/s4_401.png", "until": "disappear", "move": "pull", "handheld": 0.6},
+           {"img": "kf/s5_52.png", "until": "anyone", "move": "walk"},
+           {"img": "kf/s6_61.png", "move": "walk"}]}
