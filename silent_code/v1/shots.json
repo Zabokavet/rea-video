@@ -1,0 +1,10 @@
+{"common": "first-person POV photo, photorealistic, 35mm film, shallow depth of field",
+ "neg": "selfie, mirror, extra fingers, fused fingers, deformed hands, mutated hands, extra hands, missing fingers, text, letters, watermark, logo, brand, cartoon, illustration, 3d render, painting, blurry, lowres, distorted face, deformed face, cross-eyed",
+ "shots": [
+  {"id": "s1", "seeds": [11, 12, 13, 14], "prompt": "my own two hands resting calmly on a white tablecloth in the foreground, POV at a restaurant dinner table, four friends across the table laughing and talking to each other, ignoring me, warm amber candle light, night, man's hands, grey shirt cuffs, black leather watch"},
+  {"id": "s2", "seeds": [21, 22, 23, 24], "prompt": "close up of my own hands calmly folded on a white tablecloth beside a dinner plate and wine glass, POV looking down, man's hands, grey shirt cuffs, black leather watch, warm amber candle light, blurred laughing friends in background"},
+  {"id": "s3", "seeds": [31, 32, 33, 34], "prompt": "POV looking down at a smartphone face up on a dark walnut wooden table, glowing screen with blurred notification bubbles, my man's hand reaching toward it, grey shirt cuff, black leather watch, cool blue dusk window light, quiet home"},
+  {"id": "s4", "seeds": [41, 42, 43, 44], "prompt": "POV looking down at a black smartphone lying face down on a dark walnut wooden table, my man's hand resting still and relaxed on top of it, grey shirt cuff, black leather watch, cool blue dusk window light, quiet home, minimalist"},
+  {"id": "s5", "seeds": [51, 52, 53], "prompt": "POV walking alone down an empty quiet tree-lined residential street at golden hour, warm sunlight streaming through green leaves, sidewalk ahead, peaceful, no people"},
+  {"id": "s6", "seeds": [61, 62, 63], "prompt": "POV walking on a quiet sidewalk under trees at sunset, warm golden sunbeams and lens flare, long shadows, serene, no people"}
+ ]}
