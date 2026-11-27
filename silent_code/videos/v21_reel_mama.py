@@ -188,3 +188,5 @@ class Style(ReelStyle):
             d.rectangle((850, 1260, 950, GY), fill=A(hx("6e4a30"), 1))
             self.motes(d, t)
             d.rectangle((0, 0, W, H), fill=(255, 230, 190, int(40 * ease(lt / 3))))
+
+KEYWORD = 'TYPE "MAMA"'
