@@ -3,7 +3,7 @@ import os, math, random
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-W, H, FPS = 1920, 1080, 24
+W, H, FPS = (1080, 1920, 30) if os.environ.get("SC_VERTICAL") else (1920, 1080, 24)
 FONTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
 _fc = {}
 _WN = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold"), (800, "ExtraBold"), (900, "Black")]

@@ -464,7 +464,8 @@ def render(n, preview=None):
         return
     wav = os.path.join(BUILD, name + ".wav")
     build_audio(tl, st, wav)
-    out = os.path.join(OUT, f"{int(n):02d} - {mod.TITLE.replace('/', '-').replace(':', ' -')}.mp4")
+    os.makedirs(getattr(mod, "OUTDIR", OUT), exist_ok=True)
+    out = os.path.join(getattr(mod, "OUTDIR", OUT), f"{int(n):02d} - {mod.TITLE.replace('/', '-').replace(':', ' -')}.mp4")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
            "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "medium", "-crf", str(getattr(mod, "CRF", 20)), "-pix_fmt", "yuv420p",
            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
