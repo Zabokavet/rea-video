@@ -21,7 +21,7 @@ BGS = dict(
 )
 NARRATION = """
 Every day at noon, Mrs. Grace noticed one boy who never ate.
-Eli said he wasn't hungry. But his hands shook, and he couldn't focus in class.
+Leo said he wasn't hungry. But his hands shook, and he couldn't focus in class.
 So Mrs. Grace started bringing two sandwiches. 'I made too much,' she would say, and slide one across her desk.
 She did it every school day, for a whole year. She never told anyone.
 Twenty-five years later, Mrs. Grace lay in a hospital bed, waiting for a heart surgery she was afraid she couldn't afford.
